@@ -7,8 +7,8 @@ export const IntlContext = React.createContext({
 
 export default class IntlProvider extends React.Component {
   toggleLang = () => {
-    const lang = this.state.lang === 'fr' ? 'en' : 'fr'
-    this.setState({ lang })
+    const newLang = this.state.lang === 'fr' ? 'en' : 'fr'
+    this.setState({ lang: newLang })
   }
   state = {
     lang: 'fr',

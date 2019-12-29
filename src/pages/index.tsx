@@ -1,8 +1,7 @@
-import { css } from 'emotion'
 import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
 import Layout from '../components/layout'
-import Overview from '../components/OverView'
+import Overview from '../components/Overview'
 import PersonalData from '../components/PersonalDetails'
 
 class IndexPage extends Component {
