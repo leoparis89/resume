@@ -1,10 +1,11 @@
+import 'bootstrap/dist/css/bootstrap-grid.css'
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-
-import Header from './header'
+import Header from './Header'
 
 import './layout.css'
+import Footer from './Footer'
 
 type Props = {
   children: React.ReactNode
@@ -32,7 +33,7 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header />
         <div
           style={{
             margin: '0 auto',
@@ -42,6 +43,7 @@ const Layout = ({ children }: Props) => (
           }}
         >
           {children}
+          <Footer />
         </div>
       </>
     )}

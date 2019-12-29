@@ -17,8 +17,8 @@
     "pretty": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "downlevelIteration": true
-    "noImplicitAny": false,
+    "downlevelIteration": true,
+    "noImplicitAny": false
   },
   "include": ["src/**/*"]
 }
