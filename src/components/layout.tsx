@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap-grid.css'
+import 'react-toggle/style.css' // for ES6 modules
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'

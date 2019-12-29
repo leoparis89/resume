@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import * as React from 'react'
 import { Container } from 'reactstrap'
-// import IntlToggle from './IntlToggle'
+import LangToggle from './LangToggle'
 import Title from './Title'
 interface HeaderProps {}
 
@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = () => (
     <Container>
       <Wrapper>
         <Title />
-        <span style={{ marginTop: 45 }}>{/* <IntlToggle></IntlToggle> */}</span>
+        <span style={{ marginTop: 45 }}>{<LangToggle />}</span>
       </Wrapper>
     </Container>
   </header>
