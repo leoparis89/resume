@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'reactstrap'
 import Layout from '../components/MainLayout'
 import Overview from '../components/Overview'
 import PersonalData from '../components/PersonalDetails'
+import Skills from '../components/Skills'
 
 class IndexPage extends Component {
   render() {
@@ -24,7 +25,7 @@ class IndexPage extends Component {
               <Education />
             </Col>
             <Col xs="12" md="6">
-              {/* <Skills /> */}
+              <Skills />
             </Col>
           </Row>
 
