@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
-import Layout from '../components/layout'
+import Layout from '../components/MainLayout'
 import Overview from '../components/Overview'
 import PersonalData from '../components/PersonalDetails'
 
