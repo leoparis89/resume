@@ -22,7 +22,6 @@ const Title: React.FC = ({ children }) => (
       }
     `}
     render={data => {
-      // const { city, email, github, linkedin } = (data as any).contentfulPersonalDetails
       const nodes = data.allContentfulDescription.edges.map(({ node }) => node)
 
       return <DescriptionDisplay content={nodes} />
