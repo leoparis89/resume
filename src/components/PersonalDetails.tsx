@@ -27,26 +27,13 @@ const PersonalData: React.FC = () => (
         }
       }
     `}
-    render={
-      (data: StaticQueryProps) => {
-        return (
-          <PersonalDetailsWithLang
-            contentfulPersonalDetails={(data as any).contentfulPersonalDetails}
-          />
-        )
-      }
-      // <LayoutRoot>
-      //   <Helmet
-      //     title={data.site.siteMetadata.title}
-      //     meta={[
-      //       { name: 'description', content: data.site.siteMetadata.description },
-      //       { name: 'keywords', content: data.site.siteMetadata.keywords }
-      //     ]}
-      //   />
-      //   <Header title={data.site.siteMetadata.title} />
-      //   <LayoutMain>{children}</LayoutMain>
-      // </LayoutRoot>
-    }
+    render={(data: StaticQueryProps) => {
+      return (
+        <PersonalDetailsWithLang
+          contentfulPersonalDetails={(data as any).contentfulPersonalDetails}
+        />
+      )
+    }}
   />
 )
 
