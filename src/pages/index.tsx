@@ -1,3 +1,4 @@
+import Education from '../components/Education'
 import Jobs from '../components/ProfessionalExperience'
 import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
@@ -18,15 +19,15 @@ class IndexPage extends Component {
               <Overview />
             </Col>
           </Row>
-          {/* <Row>
-        <Col xs="12" md="6">
-          <Education />
-        </Col>
-        <Col xs="12" md="6">
-          <Skills />
-        </Col>
-      </Row>
-*/}
+          <Row>
+            <Col xs="12" md="6">
+              <Education />
+            </Col>
+            <Col xs="12" md="6">
+              {/* <Skills /> */}
+            </Col>
+          </Row>
+
           <Row>
             <Col xs="12" md="12">
               <Jobs />
