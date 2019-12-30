@@ -2,7 +2,7 @@ import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
 import { IntlContext, filterByuLang } from '../intl/IntlContext'
-import { MyH4 } from './common'
+import { MyH3 } from './common'
 
 const converter = new showdown.Converter()
 
@@ -40,7 +40,7 @@ const OverviewDisplay = ({ content }) => {
 
         return (
           <div>
-            <MyH4>{OVERVIEW[lang]}</MyH4>
+            <MyH3>{OVERVIEW[lang]}</MyH3>
             {/* {html} */}
             <span dangerouslySetInnerHTML={{ __html: html }} />
           </div>

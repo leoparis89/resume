@@ -2,7 +2,7 @@ import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
 import { IntlContext, filterByuLang } from '../intl/IntlContext'
-import { MyH4 } from './common'
+import { MyH3 } from './common'
 
 const converter = new showdown.Converter()
 const Work: React.FC = () => (
@@ -51,7 +51,7 @@ const WorkDisplay = ({ content }) => {
       {({ lang }) => {
         return (
           <div>
-            <MyH4>{WORK[lang]}</MyH4>
+            <MyH3>{WORK[lang]}</MyH3>
             {content.filter(filterByuLang(lang)).map(el => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
