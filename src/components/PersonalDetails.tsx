@@ -15,6 +15,8 @@ const UnstyledLink = styled.a({
   backgroundImage: 'none',
 }) as any
 
+const MyLi = styled('li')({ display: 'flex' })
+
 const PersonalData: React.FC = () => (
   <StaticQuery
     query={graphql`
@@ -49,26 +51,26 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
     <div>
       <MyH4>{PERSONAL_DETAILS[lang]}</MyH4>
       <ul style={{ listStyleType: 'none', margin: 0 }}>
-        <li>
+        <MyLi>
           <MdLocationOn style={IconStyle} />
           {city}
-        </li>
-        <li>
+        </MyLi>
+        <MyLi>
           <IoIosMail style={IconStyle} />
           {email}
-        </li>
-        <li>
+        </MyLi>
+        <MyLi>
           <FaGithub style={IconStyle} />
-          <UnstyledLink href={github} target="_blank">
+          <UnstyledLink href={'http://' + github} target="_blank">
             {github}
           </UnstyledLink>
-        </li>
-        <li>
+        </MyLi>
+        <MyLi>
           <FaLinkedin style={IconStyle} />
-          <UnstyledLink href={linkedin} target="_blank">
+          <UnstyledLink href={'http://' + linkedin} target="_blank">
             {linkedin}
           </UnstyledLink>
-        </li>
+        </MyLi>
       </ul>
     </div>
   )
