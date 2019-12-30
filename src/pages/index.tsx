@@ -1,3 +1,4 @@
+import Jobs from '../components/ProfessionalExperience'
 import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
 import Layout from '../components/MainLayout'
@@ -25,11 +26,12 @@ class IndexPage extends Component {
           <Skills />
         </Col>
       </Row>
-      <Row>
-        <Col xs="12" md="12">
-          <Work />
-        </Col>
-      </Row> */}
+*/}
+          <Row>
+            <Col xs="12" md="12">
+              <Jobs />
+            </Col>
+          </Row>
         </Container>
       </Layout>
     )
