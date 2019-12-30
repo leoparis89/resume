@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import IntlProvider from '../intl/IntlContext'
 import Footer from './Footer'
-import Header from './Header'
+import Header from './MyHeader'
 
 type Props = {
   children: React.ReactNode

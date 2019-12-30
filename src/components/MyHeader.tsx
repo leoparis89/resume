@@ -4,7 +4,6 @@ import React from 'react'
 import { Container } from 'reactstrap'
 import { filterByuLang, IntlContext } from '../intl/IntlContext'
 import LangToggle from './LangToggle'
-interface HeaderProps {}
 
 const Title: React.FC = ({ children }) => (
   <StaticQuery
@@ -49,7 +48,7 @@ const Wrapper = styled('div')({
   padding: '1em 0px',
 })
 
-const Header: React.FC<HeaderProps> = () => (
+const Header: React.FC = () => (
   <header>
     <Container>
       <Wrapper>
