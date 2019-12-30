@@ -19,7 +19,6 @@ const MyLangLabel = styled(LangLabel)({
 export default class IntlToggle extends Component {
   state = {}
 
-  toggle = () => {}
   render() {
     return (
       <ToggleWrapper>
