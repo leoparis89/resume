@@ -58,9 +58,9 @@ const WorkDisplay = ({ content }) => {
 
               return (
                 <div key={el.university}>
-                  <h6>
+                  <h4>
                     {el.company} {makeDate(el.startDate, el.endDate, lang)}
-                  </h6>
+                  </h4>
                   <div>
                     {/* {el.description.content.map(el => {
                       return <div>{el.content[0].value}</div>
@@ -68,7 +68,7 @@ const WorkDisplay = ({ content }) => {
                     <span dangerouslySetInnerHTML={{ __html: html }} />
                   </div>
                   <div>
-                    <h6>Stack:</h6>
+                    <h5>Stack:</h5>
                     <ul style={{ margin: 0 }}>
                       {el.stack.map(s => (
                         <li style={{ display: 'inline' }}>{s} // </li>
