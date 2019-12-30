@@ -1,12 +1,11 @@
 import 'bootstrap/dist/css/bootstrap-grid.css'
-import 'react-toggle/style.css' // for ES6 modules
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import Header from './Header'
-
-import Footer from './Footer'
+import 'react-toggle/style.css' // for ES6 modules
 import IntlProvider from '../intl/IntlContext'
+import Footer from './Footer'
+import Header from './Header'
 
 type Props = {
   children: React.ReactNode

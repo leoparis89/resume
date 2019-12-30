@@ -6,24 +6,40 @@ import React, { Component } from 'react'
 import { Global, css } from '@emotion/core'
 import { LangLabel } from './LangToggle'
 
+const themeData = {
+  light: {
+    text: '#595959',
+    background: 'white',
+    headers: '#f779b8',
+  },
+  dark: {
+    text: 'white',
+    background: '#23213f',
+    headers: '#ADEFD1FF',
+  },
+}
+
 export default class ThemeToggle extends Component {
   state = {
     dark: true,
   }
 
   toggle = () => {
-    this.setState({ dark: !this.state.dark })
+    this.setState({
+      dark: !this.state.dark,
+    })
   }
   render() {
     const { dark } = this.state
+    const themeColor = themeData[dark ? 'dark' : 'light']
 
     return (
-      <div>
+      <div style={{ margin: 30 }}>
         <Global
           styles={css`
             body {
-              color: ${!true ? '#23213f' : 'white'};
-              background: ${true ? '#23213f' : 'white'};
+              color: ${themeColor.text};
+              background: ${themeColor.background};
             }
             h1,
             h2,
@@ -32,7 +48,7 @@ export default class ThemeToggle extends Component {
             h5,
             h6 {
               transition: color 0.2s linear, background 0.2s linear;
-              color: ${true ? '#c8fcfa' : '#d83781'};
+              color: ${themeColor.headers};
             }
           `}
         />

@@ -5,9 +5,14 @@ import ThemeToggle from '../components/ThemeToggle'
 export default function Footer() {
   return (
     <footer
-      style={{ display: 'flex', justifyContent: 'center', margin: '80px 0' }}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '80px 0',
+      }}
     >
-      Made with ♥ in Closure Labs® {new Date().getFullYear()}
+      <div>Made with ♥ in Closure Labs® {new Date().getFullYear()}</div>
       <ThemeToggle />
     </footer>
   )
