@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-contentful-typescript",
-  "description": "Gatsby Contentful TypeScript starter",
+  "name": "Lev Kowalski Resume",
+  "description": "CV Lev Kowalski",
   "version": "0.3.0",
-  "author": "Filip Havrlent <filip@havrlent.com>",
+  "author": "Lev Kowalski <levkowalski@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
@@ -62,9 +62,5 @@
     "prettier": "^1.14.2",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
