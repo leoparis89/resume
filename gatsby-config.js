@@ -9,7 +9,7 @@ const contentfulConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful TypeScript starter',
+    title: 'Curriculum Vitae Lev Kowalski',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
