@@ -57,7 +57,9 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
         </MyLi>
         <MyLi>
           <IoIosMail style={IconStyle} />
-          {email}
+          <UnstyledLink href={'mailto:' + email} target="_blank">
+            {email}
+          </UnstyledLink>
         </MyLi>
         <MyLi>
           <FaGithub style={IconStyle} />

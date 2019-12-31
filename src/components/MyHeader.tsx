@@ -53,7 +53,7 @@ const Header: React.FC = () => (
     <Container>
       <Wrapper>
         <Title />
-        <span style={{ marginTop: 45 }}>{<LangToggle />}</span>
+        <span style={{ marginTop: 50 }}>{<LangToggle />}</span>
       </Wrapper>
     </Container>
   </header>

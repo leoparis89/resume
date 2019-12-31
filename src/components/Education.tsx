@@ -42,7 +42,7 @@ const EducationDisplay = ({ content }) => (
           <MyH3>{EDUCATION[lang]}</MyH3>
           {content.filter(filterByuLang(lang)).map(el => {
             const html =
-              el.speciality && converter.makeHtml(el.speciality.speciality)
+              el.specialty && converter.makeHtml(el.specialty.specialty)
 
             return (
               <div key={el.university}>
