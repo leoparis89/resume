@@ -53,7 +53,12 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
       <ul style={{ listStyleType: 'none', margin: 0 }}>
         <MyLi>
           <MdLocationOn style={IconStyle} />
-          {city}
+          <UnstyledLink
+            href={'https://goo.gl/maps/pQcnFm2HMcyHSmUi9'}
+            target="_blank"
+          >
+            {city}
+          </UnstyledLink>
         </MyLi>
         <MyLi>
           <IoIosMail style={IconStyle} />
