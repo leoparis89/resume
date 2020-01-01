@@ -70,7 +70,9 @@ const WorkDisplay = ({ content }) => {
                   <h6>Stack:</h6>
                   <ul style={{ margin: 0 }}>
                     {el.stack.map(s => (
-                      <li style={{ display: 'inline' }}>{s} // </li>
+                      <li key={s} style={{ display: 'inline' }}>
+                        {s} //{' '}
+                      </li>
                     ))}
                   </ul>
                 </div>

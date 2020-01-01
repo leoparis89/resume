@@ -33,7 +33,7 @@ const DescriptionDisplay = ({ content }) => (
     {({ lang }) => (
       <div>
         {content.filter(filterByuLang(lang)).map(el => (
-          <div>
+          <div key={lang}>
             <h1>{el.name}</h1>
             <h2>{el.job}</h2>
           </div>
