@@ -14,6 +14,7 @@ const Work: React.FC = () => (
             node {
               node_locale
               company
+              role
               startDate
               endDate
               stack
@@ -57,25 +58,21 @@ const WorkDisplay = ({ content }) => {
                 el.description && converter.makeHtml(el.description.description)
 
               return (
-                <div key={el.university}>
+                <div key={el.company}>
                   <h4>
                     {el.company} {makeDate(el.startDate, el.endDate, lang)}
                   </h4>
                   <h5>{el.role}</h5>
-                  <div>
-                    {/* {el.description.content.map(el => {
+                  {/* {el.description.content.map(el => {
                       return <div>{el.content[0].value}</div>
                     })} */}
-                    <span dangerouslySetInnerHTML={{ __html: html }} />
-                  </div>
-                  <div>
-                    <h6>Stack:</h6>
-                    <ul style={{ margin: 0 }}>
-                      {el.stack.map(s => (
-                        <li style={{ display: 'inline' }}>{s} // </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <div dangerouslySetInnerHTML={{ __html: html }} />
+                  <h6>Stack:</h6>
+                  <ul style={{ margin: 0 }}>
+                    {el.stack.map(s => (
+                      <li style={{ display: 'inline' }}>{s} // </li>
+                    ))}
+                  </ul>
                 </div>
               )
             })}
