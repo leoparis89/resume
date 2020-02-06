@@ -69,17 +69,22 @@ const WorkDisplay = ({ content }) => {
               return (
                 <div key={el.company}>
                   <h4>
-                    {el.company} {makeDate(el.startDate, el.endDate, lang)}
+                    {el.company} - {el.role}
                   </h4>
-                  <h5>{el.role}</h5>
+                  <h5 style={{ marginTop: 0 }}>
+                    {makeDate(el.startDate, el.endDate, lang)}
+                  </h5>
                   {/* {el.description.content.map(el => {
                       return <div>{el.content[0].value}</div>
                     })} */}
                   <div dangerouslySetInnerHTML={{ __html: html }} />
-                  <h6>Stack:</h6>
+                  <h5 style={{ marginTop: 0 }}>Stack:</h5>
                   <ul style={{ margin: 0 }}>
                     {el.stack.map(s => (
-                      <li key={s} style={{ display: 'inline' }}>
+                      <li
+                        key={s}
+                        style={{ display: 'inline', fontStyle: 'italic' }}
+                      >
                         {s} //{' '}
                       </li>
                     ))}
