@@ -39,11 +39,20 @@ const Work: React.FC = () => (
 const makeDate = (start, end, lang) => {
   const [sy, sm] = start.split('-')
 
-  const endDisplay = end
-    ? `${end.split('-')[1]}/${end.split('-')[0]}`
-    : CURRENT[lang]
+  const endDisplay = end ? (
+    <time>{`${end.split('-')[1]}/${end.split('-')[0]}`}</time>
+  ) : (
+    <span>{CURRENT[lang]}</span>
+  )
 
-  return `${sm}/${sy} - ${endDisplay}`
+  return (
+    <span>
+      <time>
+        {sm}/{sy}
+      </time>{' '}
+      - {endDisplay}
+    </span>
+  )
 }
 
 const WorkDisplay = ({ content }) => {
