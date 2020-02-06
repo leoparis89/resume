@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
@@ -79,13 +81,28 @@ const WorkDisplay = ({ content }) => {
                     })} */}
                   <div dangerouslySetInnerHTML={{ __html: html }} />
                   <h5 style={{ marginTop: 0 }}>Stack:</h5>
-                  <ul style={{ margin: 0 }}>
+                  <ul
+                    style={{ margin: 0 }}
+                    css={css`
+                      li {
+                        display: inline;
+                        font-style: italic;
+                      }
+                      li::after {
+                        content: ' // ';
+                      }
+                      li:last-child:after {
+                        content: '';
+                      }
+                    `}
+                  >
                     {el.stack.map(s => (
                       <li
                         key={s}
-                        style={{ display: 'inline', fontStyle: 'italic' }}
+                        // style={{ display: 'inline', fontStyle: 'italic' }}
                       >
-                        {s} //{' '}
+                        {/* {s} //{' '} */}
+                        {s}
                       </li>
                     ))}
                   </ul>
