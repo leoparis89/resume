@@ -8,8 +8,8 @@ import { LangLabel } from './LangToggle'
 
 const themeData = {
   light: {
-    text: '#595959',
-    background: 'white',
+    // text: '#595959',
+    // background: 'white',
     headers: '#f779b8',
   },
   dark: {

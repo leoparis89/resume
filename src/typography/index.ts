@@ -1,6 +1,6 @@
 import Typography from 'typography'
 import funstonTheme from 'typography-theme-lincoln'
-import sutro from 'typography-theme-twin-peaks'
+import fairy from 'typography-theme-fairy-gates'
 funstonTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   // a: {
   //   textDecoration: 'none'
@@ -8,7 +8,7 @@ funstonTheme.overrideThemeStyles = ({ rhythm }, options) => ({
 })
 
 const typography = new Typography(
-  sutro
+  fairy
   //   {
   //   baseFontSize: '18px',
   //   baseLineHeight: 1.666,
