@@ -37,6 +37,12 @@ export default class ThemeToggle extends Component {
       <div style={{ margin: 30 }}>
         <Global
           styles={css`
+            a {
+              color: ${themeColor.text};
+              background-image: initial;
+              text-shadow: initial;
+              text-decoration: underline;
+            }
             body {
               color: ${themeColor.text};
               background: ${themeColor.background};
