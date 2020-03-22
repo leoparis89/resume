@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Container } from 'reactstrap'
 import { filterByuLang, IntlContext } from '../intl/IntlContext'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from './togglers/ThemeToggle'
 
 const Title: React.FC = ({ children }) => (
   <StaticQuery

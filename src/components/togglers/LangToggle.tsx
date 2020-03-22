@@ -1,4 +1,4 @@
-import { IntlContext } from '../intl/IntlContext'
+import { IntlContext } from '../../intl/IntlContext'
 import React, { Component } from 'react'
 import Toggle from 'react-toggle'
 import styled from '@emotion/styled'

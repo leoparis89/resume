@@ -1,5 +1,5 @@
 import React from 'react'
-import LangToggle from './LangToggle'
+import LangToggle from './togglers/LangToggle'
 // import MyToggle from './MyToggle'
 
 export default function Footer() {
