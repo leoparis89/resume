@@ -3,8 +3,8 @@ import { jsx, css } from '@emotion/core'
 import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
-import { IntlContext, filterByuLang } from '../intl/IntlContext'
-import { MyH3 } from './common'
+import { IntlContext, filterByuLang } from '../../intl/IntlContext'
+import { MyH3 } from '../common'
 
 const converter = new showdown.Converter()
 const Work: React.FC = () => (

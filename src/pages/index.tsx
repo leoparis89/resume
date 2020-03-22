@@ -1,11 +1,11 @@
-import Education from '../components/Education'
-import Jobs from '../components/ProfessionalExperience'
+import Education from '../components/content/Education'
+import Jobs from '../components/content/ProfessionalExperience'
 import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
 import Layout from '../components/Layout/MainLayout'
-import Overview from '../components/Overview'
-import PersonalData from '../components/PersonalDetails'
-import Skills from '../components/Skills'
+import Overview from '../components/content/Overview'
+import PersonalData from '../components/content/PersonalDetails'
+import Skills from '../components/content/Skills'
 
 class IndexPage extends Component {
   render() {

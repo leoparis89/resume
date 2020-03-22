@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql, StaticQueryProps } from 'gatsby'
-import { MyH3, withLang } from './common'
+import { MyH3, withLang } from '../common'
 
 const SkillsDisplay = ({ skillName, lang }) => (
   <div>

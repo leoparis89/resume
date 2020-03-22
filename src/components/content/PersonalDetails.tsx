@@ -4,7 +4,7 @@ import { graphql, StaticQuery, StaticQueryProps } from 'gatsby'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import { MdLocationOn } from 'react-icons/md'
-import { MyH3, withLang } from './common'
+import { MyH3, withLang } from '../common'
 
 const IconStyle = { fontSize: '1.5em', margin: '0 10px 0 0' }
 
