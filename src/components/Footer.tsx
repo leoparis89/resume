@@ -1,5 +1,5 @@
 import React from 'react'
-import ThemeToggle from '../components/ThemeToggle'
+import LangToggle from './LangToggle'
 // import MyToggle from './MyToggle'
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
       }}
     >
       <div>Made with ♥ in Closure Labs® {new Date().getFullYear()}</div>
-      <ThemeToggle />
+      <LangToggle />
     </footer>
   )
 }
