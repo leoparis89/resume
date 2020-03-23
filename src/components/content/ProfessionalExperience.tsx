@@ -76,9 +76,6 @@ const WorkDisplay = ({ content }) => {
                   <h5 style={{ marginTop: 0 }}>
                     {makeDate(el.startDate, el.endDate, lang)}
                   </h5>
-                  {/* {el.description.content.map(el => {
-                      return <div>{el.content[0].value}</div>
-                    })} */}
                   <div dangerouslySetInnerHTML={{ __html: html }} />
                   <h5 style={{ marginTop: 0 }}>Stack:</h5>
                   <ul
@@ -97,13 +94,7 @@ const WorkDisplay = ({ content }) => {
                     `}
                   >
                     {el.stack.map(s => (
-                      <li
-                        key={s}
-                        // style={{ display: 'inline', fontStyle: 'italic' }}
-                      >
-                        {/* {s} //{' '} */}
-                        {s}
-                      </li>
+                      <li key={s}>{s}</li>
                     ))}
                   </ul>
                 </div>
