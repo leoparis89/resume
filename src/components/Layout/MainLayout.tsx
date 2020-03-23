@@ -27,8 +27,14 @@ const Layout = ({ children }: Props) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            {
+              name: 'description',
+              content: 'Lev Kowalski Curriculum Vitae',
+            },
+            {
+              name: 'keywords',
+              content: 'Lev Kowalski, Typscript, Node, React, Gatsby',
+            },
           ]}
         >
           <html lang="en" />
