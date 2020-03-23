@@ -70,7 +70,7 @@ const WorkDisplay = ({ content }) => {
 
               return (
                 <div key={el.company}>
-                  <h4>
+                  <h4 style={{ fontSize: '1.2rem' }}>
                     {el.company} - {el.role}
                   </h4>
                   <h5 style={{ marginTop: 0 }}>
