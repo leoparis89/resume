@@ -77,7 +77,7 @@ const WorkDisplay = ({ content }) => {
                     {makeDate(el.startDate, el.endDate, lang)}
                   </h5>
                   <div dangerouslySetInnerHTML={{ __html: html }} />
-                  <h5 style={{ marginTop: 0 }}>Stack:</h5>
+                  <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
                   <ul
                     style={{ margin: 0 }}
                     css={css`
