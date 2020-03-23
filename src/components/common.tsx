@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { IntlContext } from '../intl/IntlContext'
 
-export const MyH3 = styled('h3')({
+export const UpperCaseH3 = styled('h3')({
   textTransform: 'uppercase',
 })
 

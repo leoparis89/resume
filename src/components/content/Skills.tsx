@@ -1,10 +1,10 @@
 import React from 'react'
 import { StaticQuery, graphql, StaticQueryProps } from 'gatsby'
-import { MyH3, withLang } from '../common'
+import { UpperCaseH3, withLang } from '../common'
 
 const SkillsDisplay = ({ skillName, lang }) => (
   <div>
-    <MyH3>{SKILLS[lang]}</MyH3>
+    <UpperCaseH3>{SKILLS[lang]}</UpperCaseH3>
     {skillName.join(' • ')}
   </div>
 )
