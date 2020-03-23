@@ -8,13 +8,13 @@ import { LangLabel } from './LangToggle'
 
 const themeData = {
   light: {
-    text: '#595959',
-    background: 'white',
-    headers: '#f779b8',
+    text: 'black',
+    background: 'linear-gradient(210deg,#ffffff,#ead3bb,#c6e3fb)',
+    headers: 'black',
   },
   dark: {
     text: 'white',
-    background: '#23213f',
+    background: ' linear-gradient(217deg, #090625, #4b2e6e, #2b768e);',
     headers: '#ADEFD1FF',
   },
 }
