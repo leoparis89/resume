@@ -61,12 +61,12 @@ export default class ThemeToggle extends Component {
         <Toggle
           onChange={this.toggle}
           icons={{
-            checked: (
+            unchecked: (
               <LangLabel>
                 <IoIosMoon color="yellow" />
               </LangLabel>
             ),
-            unchecked: (
+            checked: (
               <LangLabel>
                 <IoIosSunny color="yellow" />
               </LangLabel>
