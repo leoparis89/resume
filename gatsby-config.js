@@ -9,15 +9,15 @@ const contentfulConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: 'Curriculum Vitae Lev Kowalski',
+    title: 'Lev Kowalski Curriculum Vitae',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-contentful-typescript',
-        short_name: 'starter',
+        name: 'Lev Kowalski Curriculum Vitae',
+        short_name: 'Lev Kowalski CV',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
