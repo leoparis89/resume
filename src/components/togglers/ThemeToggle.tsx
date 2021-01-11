@@ -37,6 +37,10 @@ export default class ThemeToggle extends Component {
       <div style={{ margin: 30 }}>
         <Global
           styles={css`
+            // @font-face {
+            //   font-family: 'Futura';
+            //   src: url('../../fonts/fdutur.ttf');
+            // }
             a {
               color: ${themeColor.text};
               background-image: initial;
@@ -46,6 +50,9 @@ export default class ThemeToggle extends Component {
             body {
               color: ${themeColor.text};
               background: ${themeColor.background};
+              font-size: 1em !important;
+              // color: #000 !important;
+              font-family: futura !important;
             }
             h1,
             h2,
