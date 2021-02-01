@@ -6,21 +6,21 @@ import PersonalData from '../components/content/PersonalDetails'
 import Jobs from '../components/content/ProfessionalExperience'
 import Skills from '../components/content/Skills'
 import Layout from '../components/Layout/MainLayout'
+import { MyLink } from '../components/Layout/MyLink'
 
 class IndexPage extends Component {
   render() {
     return (
       <Layout>
         <Container>
-          <Row>
-            <Col xs="12" md="6">
-              <PersonalData />
-            </Col>
-            <Col xs="12" md="6">
-              <Overview />
-            </Col>
-          </Row>
-          <Row>
+          <Overview />
+          {/* <PersonalData /> */}
+          <MyLink href="/goo">Projets</MyLink>
+          <MyLink href="/goo">Stack technique</MyLink>
+          <MyLink href="/goo">Expérience professionelle</MyLink>
+          <MyLink href="/goo">Contact</MyLink>
+          <MyLink href="/goo">Formation</MyLink>
+          {/* <Row>
             <Col xs="12" md="6">
               <Education />
             </Col>
@@ -33,7 +33,7 @@ class IndexPage extends Component {
             <Col xs="12" md="12">
               <Jobs />
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </Layout>
     )
