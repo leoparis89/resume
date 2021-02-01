@@ -21,7 +21,7 @@ const themeData = {
 
 export default class ThemeToggle extends Component {
   state = {
-    dark: true,
+    dark: false,
   }
 
   toggle = () => {
@@ -48,8 +48,8 @@ export default class ThemeToggle extends Component {
               text-decoration: underline;
             }
             body {
-              color: ${themeColor.text};
-              background: ${themeColor.background};
+              // color: ${themeColor.text};
+              // background: ${themeColor.background};
               font-size: 1em !important;
               // color: #000 !important;
               font-family: futura !important;
@@ -61,7 +61,7 @@ export default class ThemeToggle extends Component {
             h5,
             h6 {
               transition: color 0.2s linear, background 0.2s linear;
-              color: ${themeColor.headers};
+              // color: ${themeColor.headers};
             }
           `}
         />

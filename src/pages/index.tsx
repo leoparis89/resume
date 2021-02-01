@@ -6,12 +6,14 @@ import Layout from '../components/Layout/MainLayout'
 import Overview from '../components/content/Overview'
 import PersonalData from '../components/content/PersonalDetails'
 import Skills from '../components/content/Skills'
+import { Header } from '../components/Layout/Header'
 
 class IndexPage extends Component {
   render() {
     return (
       <Layout>
         <Container>
+          <Header />
           <Row>
             <Col xs="12" md="6">
               <PersonalData />

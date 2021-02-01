@@ -52,7 +52,7 @@ const Header: React.FC = () => (
   <header>
     <Container>
       <Wrapper>
-        <Title />
+        {/* <Title /> */}
         <span style={{ marginTop: 50 }}>{<ThemeToggle />}</span>
       </Wrapper>
     </Container>
