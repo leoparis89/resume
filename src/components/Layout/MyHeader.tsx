@@ -49,13 +49,11 @@ const Wrapper = styled('div')({
 })
 
 const Header: React.FC = () => (
-  <header>
-    <Wrapper>
-      {/* <Title /> */}
-      <span style={{ marginTop: 50 }}>{}</span>
-    </Wrapper>
-    <HeaderFrame />
-  </header>
+  <Container>
+    <header>
+      <HeaderFrame />
+    </header>
+  </Container>
 )
 
 export default Header
@@ -69,11 +67,19 @@ export const HeaderFrame = () => {
         padding: 10,
       }}
     >
-      <span>
-        <h1>Lev Kowalski</h1>
-        <h2>Software engineer</h2>
-      </span>
-      <ThemeToggle />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <span>
+          <h1>Lev Kowalski</h1>
+          <h2>Software engineer</h2>
+        </span>
+        <ThemeToggle />
+      </div>
     </div>
   )
 }
