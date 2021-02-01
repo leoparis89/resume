@@ -15,9 +15,20 @@ const ThemeProvider = props => {
   return (
     <ThemeContext.Provider value={{ dark, toggleDark }}>
       <Global
-        styles={css({
-          color: dark ? 'black' : 'white',
-        })}
+        styles={css`
+          body {
+            color: ${dark ? 'black' : 'white'};
+            background: ${!dark ? '#251d3d' : 'white'};
+            font-family: futura !important;
+            transition: color 0.2s ease-out, background 0.2s ease-out;
+          }
+
+          a {
+            color: ${dark ? 'black' : 'white'};
+            background-image: initial;
+            text-shadow: initial;
+          }
+        `}
       />
       {props.children}
     </ThemeContext.Provider>
