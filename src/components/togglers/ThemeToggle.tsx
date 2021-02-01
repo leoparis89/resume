@@ -45,7 +45,6 @@ export default class ThemeToggle extends Component {
               color: ${themeColor.text};
               background-image: initial;
               text-shadow: initial;
-              text-decoration: underline;
             }
             body {
               // color: ${themeColor.text};
@@ -65,22 +64,26 @@ export default class ThemeToggle extends Component {
             }
           `}
         />
-        <Toggle
-          onChange={this.toggle}
-          icons={{
-            unchecked: (
-              <LangLabel>
-                <IoIosMoon color="yellow" />
-              </LangLabel>
-            ),
-            checked: (
-              <LangLabel>
-                <IoIosSunny color="yellow" />
-              </LangLabel>
-            ),
-          }}
-        />
+        <ToggleBtn onChange={this.toggle} />
       </div>
     )
   }
 }
+
+const ToggleBtn = ({ onChange }) => (
+  <Toggle
+    onChange={onChange}
+    icons={{
+      unchecked: (
+        <LangLabel>
+          <IoIosMoon color="yellow" />
+        </LangLabel>
+      ),
+      checked: (
+        <LangLabel>
+          <IoIosSunny color="yellow" />
+        </LangLabel>
+      ),
+    }}
+  />
+)

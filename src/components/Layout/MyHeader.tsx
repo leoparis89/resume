@@ -50,13 +50,30 @@ const Wrapper = styled('div')({
 
 const Header: React.FC = () => (
   <header>
-    <Container>
-      <Wrapper>
-        {/* <Title /> */}
-        <span style={{ marginTop: 50 }}>{<ThemeToggle />}</span>
-      </Wrapper>
-    </Container>
+    <Wrapper>
+      {/* <Title /> */}
+      <span style={{ marginTop: 50 }}>{}</span>
+    </Wrapper>
+    <HeaderFrame />
   </header>
 )
 
 export default Header
+
+export const HeaderFrame = () => {
+  return (
+    <div
+      style={{
+        background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
+        color: '#FBFFA7',
+        padding: 10,
+      }}
+    >
+      <span>
+        <h1>Lev Kowalski</h1>
+        <h2>Software engineer</h2>
+      </span>
+      <ThemeToggle />
+    </div>
+  )
+}

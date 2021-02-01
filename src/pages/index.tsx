@@ -13,7 +13,6 @@ class IndexPage extends Component {
     return (
       <Layout>
         <Container>
-          <Header />
           <Row>
             <Col xs="12" md="6">
               <PersonalData />
