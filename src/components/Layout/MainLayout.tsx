@@ -4,6 +4,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import IntlProvider from '../../intl/IntlContext'
+import ThemeProvider from '../../intl/themeContext'
 import Footer from './Footer'
 import Header from './MyHeader'
 
@@ -39,11 +40,13 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <IntlProvider>
-          <Header />
-          {children}
-          <Footer />
-        </IntlProvider>
+        <ThemeProvider>
+          <IntlProvider>
+            <Header />
+            {children}
+            <Footer />
+          </IntlProvider>
+        </ThemeProvider>
       </>
     )}
   />
