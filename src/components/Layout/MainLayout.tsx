@@ -41,10 +41,8 @@ const Layout = ({ children }: Props) => (
         </Helmet>
         <IntlProvider>
           <Header />
-          <div>
-            {children}
-            <Footer />
-          </div>
+          {children}
+          <Footer />
         </IntlProvider>
       </>
     )}

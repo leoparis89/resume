@@ -1,27 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const IntlContext = React.createContext({
   lang: 'fr',
   toggleLang: () => {},
 })
 
-export default class IntlProvider extends React.Component {
-  toggleLang = () => {
-    const newLang = this.state.lang === 'fr' ? 'en' : 'fr'
-    this.setState({ lang: newLang })
+const IntlProvider = props => {
+  const [lang, setLang] = useState('fr')
+
+  const toggleLang = () => {
+    const newLang = lang === 'fr' ? 'en' : 'fr'
+    setLang(newLang)
   }
-  state = {
-    lang: 'fr',
-    toggleLang: this.toggleLang,
-  }
-  render() {
-    return (
-      <IntlContext.Provider value={this.state}>
-        {this.props.children}
-      </IntlContext.Provider>
-    )
-  }
+
+  return (
+    <IntlContext.Provider value={{ lang, toggleLang }}>
+      {props.children}
+    </IntlContext.Provider>
+  )
 }
 
 export const filterByuLang = lang => node =>
   (node.node_locale as string).includes(lang)
+
+export default IntlProvider
