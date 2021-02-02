@@ -1,11 +1,11 @@
 import { graphql, StaticQuery } from 'gatsby'
-import { prop } from 'ramda'
+import { prop, compose, filter } from 'ramda'
 import React, { useContext } from 'react'
 import { Container } from 'reactstrap'
 import { IntlContext, NodeLocale } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
-const getNodes = (name: string) => (data: any) =>
+const getNodes = (name: string) => (data: any): any[] =>
   data[name].edges.map(prop('node'))
 
 export const byLang = (lang: NodeLocale) => node => {
@@ -32,9 +32,11 @@ const Header: React.FC = ({ children }) => {
       `}
       render={data => (
         <DescriptionDisplay
-          content={getNodes('allContentfulDescription')(data).filter(
-            byLang(lang)
-          )}
+          content={compose(
+            prop('0') as any,
+            filter(byLang(lang)),
+            getNodes('allContentfulDescription')
+          )(data)}
         />
       )}
     />
@@ -42,7 +44,7 @@ const Header: React.FC = ({ children }) => {
 }
 
 const DescriptionDisplay = ({ content }) => {
-  const [{ name, job }] = content
+  const { name, job } = content
 
   return <Container>{<HeaderFrame name={name} job={job} />}</Container>
 }
