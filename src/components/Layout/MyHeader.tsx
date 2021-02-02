@@ -42,17 +42,10 @@ const DescriptionDisplay = ({ content }) => (
     )}
   </IntlContext.Consumer>
 )
-const Wrapper = styled('div')({
-  display: 'flex',
-  justifyContent: 'space-between',
-  padding: '1em 0px',
-})
 
 const Header: React.FC = () => (
   <Container>
-    <header>
-      <HeaderFrame />
-    </header>
+    <HeaderFrame />
   </Container>
 )
 
@@ -60,7 +53,7 @@ export default Header
 
 export const HeaderFrame = () => {
   return (
-    <div
+    <header
       style={{
         background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
         color: '#FBFFA7',
@@ -80,6 +73,6 @@ export const HeaderFrame = () => {
         </span>
         <ThemeToggle />
       </div>
-    </div>
+    </header>
   )
 }
