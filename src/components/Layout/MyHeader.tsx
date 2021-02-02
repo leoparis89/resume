@@ -29,17 +29,15 @@ const Header: React.FC = ({ children }) => (
 
 const DescriptionDisplay = ({ content }) => (
   <IntlContext.Consumer>
-    {({ lang }) => (
-      <div>
-        {content.filter(filterByLang(lang)).map(({ name, job }) => (
-          <div key={lang}>
-            <Container>
-              <HeaderFrame name={name} job={job} />
-            </Container>
-          </div>
-        ))}
-      </div>
-    )}
+    {({ lang }) =>
+      content.filter(filterByLang(lang)).map(({ name, job }) => (
+        <div key={lang}>
+          <Container>
+            <HeaderFrame name={name} job={job} />
+          </Container>
+        </div>
+      ))
+    }
   </IntlContext.Consumer>
 )
 
