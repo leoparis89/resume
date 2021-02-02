@@ -4,7 +4,7 @@ import { Container } from 'reactstrap'
 import { filterByLang, IntlContext } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
-const Title: React.FC = ({ children }) => (
+const Header: React.FC = ({ children }) => (
   <StaticQuery
     query={graphql`
       query description {
@@ -31,24 +31,17 @@ const DescriptionDisplay = ({ content }) => (
   <IntlContext.Consumer>
     {({ lang }) => (
       <div>
-        {content.filter(filterByLang(lang)).map(el => (
+        {content.filter(filterByLang(lang)).map(({ name, job }) => (
           <div key={lang}>
-            <h1>{el.name}</h1>
-            <h2>{el.job}</h2>
+            <Container>
+              <HeaderFrame name={name} job={job} />
+            </Container>
           </div>
         ))}
       </div>
     )}
   </IntlContext.Consumer>
 )
-
-const Header: React.FC = () => (
-  <Container>
-    <HeaderFrame name="jogn" job="foo" />
-  </Container>
-)
-
-export default Header
 
 type HeaderProps = {
   name: string
@@ -80,3 +73,5 @@ export const HeaderFrame: React.FC<HeaderProps> = ({ name, job }) => {
     </header>
   )
 }
+
+export default Header
