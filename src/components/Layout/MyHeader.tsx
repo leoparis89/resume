@@ -11,7 +11,7 @@ const Header: React.FC = ({ children }) => {
     <StaticQuery
       query={graphql`
         query description {
-          allContentfulDescription {
+          allContentfulDescription(filter: { node_locale: { eq: "en-US" } }) {
             edges {
               node {
                 name
