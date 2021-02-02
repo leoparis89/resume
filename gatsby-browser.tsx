@@ -10,9 +10,10 @@ import React from 'react'
 import IntlProvider from './src/intl/IntlContext'
 import ThemeProvider from './src/intl/themeContext'
 
-export const wrapRootElement = ({ element }) => {
+export const wrapPageElement = ({ element }) => {
   return (
     <ThemeProvider>
+      hello
       <IntlProvider>{element}</IntlProvider>
     </ThemeProvider>
   )
