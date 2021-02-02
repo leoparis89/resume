@@ -5,7 +5,7 @@ import { Container } from 'reactstrap'
 import { IntlContext, NodeLocale, useLang } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
-const getNodes = (obj: any): any[] => {
+function getNodes<T>(obj: any): T[] {
   // tslint:disable-next-line:forin
   for (const key in obj) {
     if (key === 'nodes') {
@@ -29,7 +29,20 @@ export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
   return result[0]
 }
 
-const withData = (query: TemplateStringsArray) => {}
+// const withData = (query: TemplateStringsArray, Component: any) => {
+//   const lang = useLang()
+
+//   return (
+//     <StaticQuery
+//       query={graphql(query)}
+//       render={data => {
+//         const [props] = getNodes(data).filter(byLang(lang))
+
+//         return <Component {...props} />
+//       }}
+//     />
+//   )
+// }
 
 const Header: React.FC = ({ children }) => {
   const lang = useLang()
@@ -48,7 +61,7 @@ const Header: React.FC = ({ children }) => {
         }
       `}
       render={data => {
-        const [props] = getNodes(data).filter(byLang(lang))
+        const [props] = getNodes<HeaderProps>(data).filter(byLang(lang))
 
         return <DescriptionDisplay {...props} />
       }}
@@ -56,7 +69,7 @@ const Header: React.FC = ({ children }) => {
   )
 }
 
-const DescriptionDisplay = ({ name, job }) => {
+const DescriptionDisplay: React.FC<HeaderProps> = ({ name, job }) => {
   return <Container>{<HeaderFrame name={name} job={job} />}</Container>
 }
 
@@ -72,21 +85,16 @@ export const HeaderFrame: React.FC<HeaderProps> = ({ name, job }) => {
         background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
         color: '#FBFFA7',
         padding: 10,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <span>
-          <h1>{name}</h1>
-          <h2>{job}</h2>
-        </span>
-        <ThemeToggle />
-      </div>
+      <span>
+        <h1>{name}</h1>
+        <h2>{job}</h2>
+      </span>
+      <ThemeToggle />
     </header>
   )
 }
