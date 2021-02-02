@@ -41,15 +41,11 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <ThemeProvider>
-          <IntlProvider>
-            <Container>
-              <Header />
-              {children}
-              <Footer />
-            </Container>
-          </IntlProvider>
-        </ThemeProvider>
+        <Container>
+          <Header />
+          {children}
+          <Footer />
+        </Container>
       </>
     )}
   />
