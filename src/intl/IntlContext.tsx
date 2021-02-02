@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 
-enum NodeLocal {
+enum NodeLocale {
   FR = 'fr',
   EN = 'en-US',
 }
 
 export const IntlContext = React.createContext<{
-  lang: NodeLocal
+  lang: NodeLocale
   toggleLang: any
 }>({
-  lang: NodeLocal.FR,
+  lang: NodeLocale.FR,
   toggleLang: () => {},
 })
 
 const IntlProvider = props => {
-  const [lang, setLang] = useState<NodeLocal>(NodeLocal.FR)
+  const [lang, setLang] = useState<NodeLocale>(NodeLocale.FR)
 
   const toggleLang = () => {
-    const newLang = lang === NodeLocal.FR ? NodeLocal.EN : NodeLocal.FR
+    const newLang = lang === NodeLocale.FR ? NodeLocale.EN : NodeLocale.FR
     setLang(newLang)
   }
 
