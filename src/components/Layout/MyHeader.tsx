@@ -1,31 +1,37 @@
 import { graphql, StaticQuery } from 'gatsby'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container } from 'reactstrap'
 import { filterByLang, IntlContext } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
-const Header: React.FC = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query description {
-        allContentfulDescription {
-          edges {
-            node {
-              name
-              job
-              node_locale
+const Header: React.FC = ({ children }) => {
+  const { lang } = useContext(IntlContext)
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query description {
+          allContentfulDescription {
+            edges {
+              node {
+                name
+                job
+                node_locale
+              }
             }
           }
         }
-      }
-    `}
-    render={data => {
-      const nodes = data.allContentfulDescription.edges.map(({ node }) => node)
+      `}
+      render={data => {
+        const nodes = data.allContentfulDescription.edges.map(
+          ({ node }) => node
+        )
 
-      return <DescriptionDisplay content={nodes} />
-    }}
-  />
-)
+        return <DescriptionDisplay content={nodes} />
+      }}
+    />
+  )
+}
 
 const DescriptionDisplay = ({ content }) => (
   <IntlContext.Consumer>
