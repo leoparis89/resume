@@ -49,36 +49,15 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
 
   return (
     <div>
-      <UpperCaseH3>{PERSONAL_DETAILS[lang]}</UpperCaseH3>
-      <ul style={{ listStyleType: 'none', margin: 0 }}>
-        <MyLi>
-          <MdLocationOn style={IconStyle} />
-          <UnstyledLink
-            href={'https://goo.gl/maps/pQcnFm2HMcyHSmUi9'}
-            target="_blank"
-          >
-            {city}
-          </UnstyledLink>
-        </MyLi>
-        <MyLi>
-          <IoIosMail style={IconStyle} />
-          <UnstyledLink href={'mailto:' + email} target="_blank">
-            {email}
-          </UnstyledLink>
-        </MyLi>
-        <MyLi>
-          <FaGithub style={IconStyle} />
-          <UnstyledLink href={'http://' + github} target="_blank">
-            {github}
-          </UnstyledLink>
-        </MyLi>
-        <MyLi>
-          <FaLinkedin style={IconStyle} />
-          <UnstyledLink href={'http://' + linkedin} target="_blank">
-            {linkedin}
-          </UnstyledLink>
-        </MyLi>
-      </ul>
+      <UnstyledLink href={'mailto:' + email} target="_blank">
+        <IoIosMail style={IconStyle} />
+      </UnstyledLink>
+      <UnstyledLink href={'http://' + github} target="_blank">
+        <FaGithub style={IconStyle} />
+      </UnstyledLink>
+      <UnstyledLink href={'http://' + linkedin} target="_blank">
+        <FaLinkedin style={IconStyle} />
+      </UnstyledLink>
     </div>
   )
 }

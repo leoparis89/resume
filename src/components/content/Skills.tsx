@@ -10,6 +10,7 @@ const SkillsDisplay = ({ skillName, lang }) => (
 )
 
 const SkillDisplayWithLang = withLang(SkillsDisplay)
+
 const Skills: React.FC = ({ children }) => (
   <StaticQuery
     query={graphql`

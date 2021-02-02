@@ -36,11 +36,5 @@ module.exports = {
     {
       resolve: `gatsby-plugin-emotion`,
     },
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/typography`,
-    //   },
-    // },
   ],
 }
