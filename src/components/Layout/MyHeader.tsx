@@ -44,13 +44,18 @@ const DescriptionDisplay = ({ content }) => (
 
 const Header: React.FC = () => (
   <Container>
-    <HeaderFrame />
+    <HeaderFrame name="jogn" job="foo" />
   </Container>
 )
 
 export default Header
 
-export const HeaderFrame = () => {
+type HeaderProps = {
+  name: string
+  job: string
+}
+
+export const HeaderFrame: React.FC<HeaderProps> = ({ name, job }) => {
   return (
     <header
       style={{
@@ -67,8 +72,8 @@ export const HeaderFrame = () => {
         }}
       >
         <span>
-          <h1>Lev Kowalski</h1>
-          <h2>Software engineer</h2>
+          <h1>{name}</h1>
+          <h2>{job}</h2>
         </span>
         <ThemeToggle />
       </div>
