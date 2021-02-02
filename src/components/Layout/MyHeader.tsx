@@ -4,6 +4,9 @@ import { Container } from 'reactstrap'
 import { IntlContext } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
+const getNodes = (name: string, data: any) =>
+  data[name].edges.map(({ node }) => node)
+
 const Header: React.FC = ({ children }) => {
   const { lang } = useContext(IntlContext)
 
@@ -22,13 +25,11 @@ const Header: React.FC = ({ children }) => {
           }
         }
       `}
-      render={data => {
-        const nodes = data.allContentfulDescription.edges.map(
-          ({ node }) => node
-        )
-
-        return <DescriptionDisplay content={nodes} />
-      }}
+      render={data => (
+        <DescriptionDisplay
+          content={getNodes('allContentfulDescription', data)}
+        />
+      )}
     />
   )
 }
