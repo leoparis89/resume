@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
-import { IntlContext, filterByuLang } from '../../intl/IntlContext'
+import { IntlContext, filterByLang } from '../../intl/IntlContext'
 import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
@@ -64,7 +64,7 @@ const WorkDisplay = ({ content }) => {
         return (
           <div>
             <UpperCaseH3>{WORK[lang]}</UpperCaseH3>
-            {content.filter(filterByuLang(lang)).map(el => {
+            {content.filter(filterByLang(lang)).map(el => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
 

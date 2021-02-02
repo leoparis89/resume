@@ -1,8 +1,7 @@
-import styled from '@emotion/styled'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Container } from 'reactstrap'
-import { filterByuLang, IntlContext } from '../../intl/IntlContext'
+import { filterByLang, IntlContext } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
 const Title: React.FC = ({ children }) => (
@@ -32,7 +31,7 @@ const DescriptionDisplay = ({ content }) => (
   <IntlContext.Consumer>
     {({ lang }) => (
       <div>
-        {content.filter(filterByuLang(lang)).map(el => (
+        {content.filter(filterByLang(lang)).map(el => (
           <div key={lang}>
             <h1>{el.name}</h1>
             <h2>{el.job}</h2>

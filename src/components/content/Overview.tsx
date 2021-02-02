@@ -1,7 +1,7 @@
 import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
-import { IntlContext, filterByuLang } from '../../intl/IntlContext'
+import { IntlContext, filterByLang } from '../../intl/IntlContext'
 import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
@@ -35,7 +35,7 @@ const OverviewDisplay = ({ content }) => {
     <IntlContext.Consumer>
       {({ lang }) => {
         const html = converter.makeHtml(
-          content.filter(filterByuLang(lang))[0].bio.bio
+          content.filter(filterByLang(lang))[0].bio.bio
         )
 
         return (
