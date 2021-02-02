@@ -3,10 +3,11 @@ import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
+import { Container } from 'reactstrap'
 import IntlProvider from '../../intl/IntlContext'
 import ThemeProvider from '../../intl/themeContext'
 import Footer from './Footer'
-import Header from './MyHeader'
+import Header from './Header'
 
 type Props = {
   children: React.ReactNode
@@ -42,9 +43,11 @@ const Layout = ({ children }: Props) => (
         </Helmet>
         <ThemeProvider>
           <IntlProvider>
-            <Header />
-            {children}
-            <Footer />
+            <Container>
+              <Header />
+              {children}
+              <Footer />
+            </Container>
           </IntlProvider>
         </ThemeProvider>
       </>

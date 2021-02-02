@@ -16,7 +16,7 @@ class IndexPage extends Component {
           <Overview />
           {/* <PersonalData /> */}
           <MyLink href="/goo">Projets</MyLink>
-          <MyLink href="/page-2">Stack technique</MyLink>
+          <MyLink href="/skills">Stack technique</MyLink>
           <MyLink href="/goo">Expérience professionelle</MyLink>
           <MyLink href="/goo">Contact</MyLink>
           <MyLink href="/goo">Formation</MyLink>

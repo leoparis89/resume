@@ -63,14 +63,10 @@ const Header: React.FC = ({ children }) => {
       render={data => {
         const [props] = getNodes<HeaderProps>(data).filter(byLang(lang))
 
-        return <DescriptionDisplay {...props} />
+        return <HeaderDisplay {...props} />
       }}
     />
   )
-}
-
-const DescriptionDisplay: React.FC<HeaderProps> = ({ name, job }) => {
-  return <Container>{<HeaderFrame name={name} job={job} />}</Container>
 }
 
 type HeaderProps = {
@@ -78,7 +74,7 @@ type HeaderProps = {
   job: string
 }
 
-export const HeaderFrame: React.FC<HeaderProps> = ({ name, job }) => {
+export const HeaderDisplay: React.FC<HeaderProps> = ({ name, job }) => {
   return (
     <header
       style={{
