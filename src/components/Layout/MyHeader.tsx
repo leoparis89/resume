@@ -1,7 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
 import { Container } from 'reactstrap'
-import { filterByLang, IntlContext } from '../../intl/IntlContext'
+import { IntlContext } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
 const Header: React.FC = ({ children }) => {
@@ -33,19 +33,15 @@ const Header: React.FC = ({ children }) => {
   )
 }
 
-const DescriptionDisplay = ({ content }) => (
-  <IntlContext.Consumer>
-    {({ lang }) =>
-      content.filter(filterByLang(lang)).map(({ name, job }) => (
-        <div key={lang}>
-          <Container>
-            <HeaderFrame name={name} job={job} />
-          </Container>
-        </div>
-      ))
-    }
-  </IntlContext.Consumer>
-)
+const DescriptionDisplay = ({ content }) => {
+  const [{ name, job }] = content
+
+  return (
+    <Container>
+      <HeaderFrame name={name} job={job} />
+    </Container>
+  )
+}
 
 type HeaderProps = {
   name: string
