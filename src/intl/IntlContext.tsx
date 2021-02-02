@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-enum NodeLocale {
+export enum NodeLocale {
   FR = 'fr',
   EN = 'en-US',
 }

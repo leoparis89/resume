@@ -1,11 +1,16 @@
 import { graphql, StaticQuery } from 'gatsby'
+import { prop } from 'ramda'
 import React, { useContext } from 'react'
 import { Container } from 'reactstrap'
-import { IntlContext } from '../../intl/IntlContext'
+import { IntlContext, NodeLocale } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
-const getNodes = (name: string, data: any) =>
-  data[name].edges.map(({ node }) => node)
+const getNodes = (name: string) => (data: any) =>
+  data[name].edges.map(prop('node'))
+
+export const byLang = (lang: NodeLocale) => node => {
+  return node.node_locale === lang
+}
 
 const Header: React.FC = ({ children }) => {
   const { lang } = useContext(IntlContext)
@@ -14,7 +19,7 @@ const Header: React.FC = ({ children }) => {
     <StaticQuery
       query={graphql`
         query description {
-          allContentfulDescription(filter: { node_locale: { eq: "en-US" } }) {
+          allContentfulDescription {
             edges {
               node {
                 name
@@ -27,7 +32,9 @@ const Header: React.FC = ({ children }) => {
       `}
       render={data => (
         <DescriptionDisplay
-          content={getNodes('allContentfulDescription', data)}
+          content={getNodes('allContentfulDescription')(data).filter(
+            byLang(lang)
+          )}
         />
       )}
     />
@@ -37,11 +44,7 @@ const Header: React.FC = ({ children }) => {
 const DescriptionDisplay = ({ content }) => {
   const [{ name, job }] = content
 
-  return (
-    <Container>
-      <HeaderFrame name={name} job={job} />
-    </Container>
-  )
+  return <Container>{<HeaderFrame name={name} job={job} />}</Container>
 }
 
 type HeaderProps = {
