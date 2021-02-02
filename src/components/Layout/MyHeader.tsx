@@ -2,50 +2,61 @@ import { graphql, StaticQuery } from 'gatsby'
 import { prop, compose, filter } from 'ramda'
 import React, { useContext } from 'react'
 import { Container } from 'reactstrap'
-import { IntlContext, NodeLocale } from '../../intl/IntlContext'
+import { IntlContext, NodeLocale, useLang } from '../../intl/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
-const getNodes = (name: string) => (data: any): any[] =>
-  data[name].edges.map(prop('node'))
+const getNodes = (obj: any): any[] => {
+  // tslint:disable-next-line:forin
+  for (const key in obj) {
+    if (key === 'nodes') {
+      return obj[key]
+    }
+
+    if (typeof obj[key] === 'object') {
+      return getNodes(obj[key])
+    }
+  }
+
+  return []
+}
 
 export const byLang = (lang: NodeLocale) => node => {
   return node.node_locale === lang
 }
+export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
+  const result = nodes.filter(byLang(lang))
+
+  return result[0]
+}
+
+const withData = (query: TemplateStringsArray) => {}
 
 const Header: React.FC = ({ children }) => {
-  const { lang } = useContext(IntlContext)
+  const lang = useLang()
 
   return (
     <StaticQuery
       query={graphql`
-        query description {
+        query MyQuery {
           allContentfulDescription {
-            edges {
-              node {
-                name
-                job
-                node_locale
-              }
+            nodes {
+              name
+              node_locale
+              job
             }
           }
         }
       `}
-      render={data => (
-        <DescriptionDisplay
-          content={compose(
-            prop('0') as any,
-            filter(byLang(lang)),
-            getNodes('allContentfulDescription')
-          )(data)}
-        />
-      )}
+      render={data => {
+        const [props] = getNodes(data).filter(byLang(lang))
+
+        return <DescriptionDisplay {...props} />
+      }}
     />
   )
 }
 
-const DescriptionDisplay = ({ content }) => {
-  const { name, job } = content
-
+const DescriptionDisplay = ({ name, job }) => {
   return <Container>{<HeaderFrame name={name} job={job} />}</Container>
 }
 

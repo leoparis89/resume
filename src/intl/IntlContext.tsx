@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 export enum NodeLocale {
   FR = 'fr',
@@ -12,6 +12,12 @@ export const IntlContext = React.createContext<{
   lang: NodeLocale.FR,
   toggleLang: () => {},
 })
+
+export const useLang = () => {
+  const { lang } = useContext(IntlContext)
+
+  return lang
+}
 
 const IntlProvider = props => {
   const [lang, setLang] = useState<NodeLocale>(NodeLocale.FR)
