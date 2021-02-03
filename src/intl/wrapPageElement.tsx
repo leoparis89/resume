@@ -5,7 +5,6 @@ import ThemeProvider from './themeContext'
 export const wrapPageElement = ({ element }) => {
   return (
     <ThemeProvider>
-      hello
       <IntlProvider>{element}</IntlProvider>
     </ThemeProvider>
   )

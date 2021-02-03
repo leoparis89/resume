@@ -1,12 +1,8 @@
+import { Link } from 'gatsby'
 import React, { Component } from 'react'
-import { Col, Container, Row } from 'reactstrap'
-import Education from '../components/content/Education'
+import { Container } from 'reactstrap'
 import Overview from '../components/content/Overview'
-import PersonalData from '../components/content/PersonalDetails'
-import Jobs from '../components/content/ProfessionalExperience'
-import Skills from '../components/content/Skills'
 import Layout from '../components/Layout/MainLayout'
-import { MyLink } from '../components/Layout/MyLink'
 
 class IndexPage extends Component {
   render() {
@@ -15,11 +11,11 @@ class IndexPage extends Component {
         <Container>
           <Overview />
           {/* <PersonalData /> */}
-          <MyLink href="/goo">Projets</MyLink>
-          <MyLink href="/skills">Stack technique</MyLink>
-          <MyLink href="/goo">Expérience professionelle</MyLink>
-          <MyLink href="/goo">Contact</MyLink>
-          <MyLink href="/goo">Formation</MyLink>
+          <Link to="/goo">Projets</Link>
+          <Link to="/skills">Stack technique</Link>
+          <Link to="/goo">Expérience professionelle</Link>
+          <Link to="/goo">Contact</Link>
+          <Link to="/goo">Formation</Link>
           {/* <Row>
             <Col xs="12" md="6">
               <Education />
