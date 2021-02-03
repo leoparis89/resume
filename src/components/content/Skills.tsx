@@ -21,7 +21,7 @@ const Skills: React.FC = ({ children }) => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       return (
         <SkillDisplayWithLang skillName={data.contentfulSkills.skillName} />
       )

@@ -7,7 +7,7 @@ export const UpperCaseH3 = styled('h3')({
   textTransform: 'uppercase',
 })
 
-export const withLang = Comp => props => (
+export const withLang = (Comp) => (props) => (
   <IntlContext.Consumer>
     {({ lang }) => {
       return <Comp {...props} lang={lang} />

@@ -1,13 +1,10 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { css, jsx } from '@emotion/core'
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { graphql, StaticQuery } from 'gatsby'
-import {
-  IntlContext,
-  filterByLang,
-  NodeLocale,
-} from '../../contexts/IntlContext'
+import { filterByLang, IntlContext } from '../../contexts/IntlContext'
+import { Translate } from '../../wording'
 import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
@@ -33,7 +30,7 @@ const Work: React.FC = () => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       return (
         <WorkDisplay
           content={data.allContentfulJob.edges.map(({ node }) => node)}
@@ -43,13 +40,15 @@ const Work: React.FC = () => (
   />
 )
 
-const makeDate = (start, end, lang) => {
+const makeDate = (start, end) => {
   const [sy, sm] = start.split('-')
 
   const endDisplay = end ? (
     <time>{`${end.split('-')[1]}/${end.split('-')[0]}`}</time>
   ) : (
-    <span>{CURRENT[lang]}</span>
+    <span>
+      <Translate phrase="CURRENT" />
+    </span>
   )
 
   return (
@@ -68,41 +67,46 @@ const WorkDisplay = ({ content }) => {
       {({ lang }) => {
         return (
           <div>
-            <UpperCaseH3>{WORK[lang]}</UpperCaseH3>
-            {content.filter(filterByLang(lang)).map(el => {
+            <UpperCaseH3>
+              <Translate phrase="WORK" />
+            </UpperCaseH3>
+            {content.filter(filterByLang(lang)).map((el) => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
 
               return (
-                <div key={el.company}>
-                  <h4 style={{ fontSize: '1.2rem' }}>
-                    {el.company} - {el.role}
-                  </h4>
-                  <h5 style={{ marginTop: 0 }}>
-                    {makeDate(el.startDate, el.endDate, lang)}
-                  </h5>
-                  <div dangerouslySetInnerHTML={{ __html: html }} />
-                  <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
-                  <ul
-                    style={{ margin: 0 }}
-                    css={css`
-                      li {
-                        display: inline;
-                        font-style: italic;
-                      }
-                      li::after {
-                        content: ' • ';
-                      }
-                      li:last-child:after {
-                        content: '';
-                      }
-                    `}
-                  >
-                    {el.stack.map(s => (
-                      <li key={s}>{s}</li>
-                    ))}
-                  </ul>
-                </div>
+                <>
+                  <div key={el.company}>
+                    <h3>
+                      {el.company} - {el.role}
+                    </h3>
+                    <h5 style={{ marginTop: 0 }}>
+                      {makeDate(el.startDate, el.endDate)}
+                    </h5>
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
+                    <ul
+                      style={{ margin: 0 }}
+                      css={css`
+                        li {
+                          display: inline;
+                          font-style: italic;
+                        }
+                        li::after {
+                          content: ' • ';
+                        }
+                        li:last-child:after {
+                          content: '';
+                        }
+                      `}
+                    >
+                      {el.stack.map((s) => (
+                        <li key={s}>{s}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <hr />
+                </>
               )
             })}
           </div>
@@ -112,13 +116,4 @@ const WorkDisplay = ({ content }) => {
   )
 }
 
-const WORK = {
-  [NodeLocale.FR]: 'Projets',
-  [NodeLocale.EN]: 'Professional history',
-}
-
-const CURRENT = {
-  [NodeLocale.FR]: 'Actuel',
-  [NodeLocale.EN]: 'Current',
-}
 export default Work

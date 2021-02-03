@@ -1,11 +1,8 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { graphql, StaticQuery } from 'gatsby'
-import {
-  IntlContext,
-  filterByLang,
-  NodeLocale,
-} from '../../contexts/IntlContext'
+import { filterByLang, IntlContext } from '../../contexts/IntlContext'
+import { Translate } from '../../wording'
 import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
@@ -26,7 +23,7 @@ const Overview: React.FC = ({ children }) => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       const { edges } = data.allContentfulOverview
 
       return <OverviewDisplay content={edges.map(({ node }) => node)} />
@@ -44,7 +41,7 @@ const OverviewDisplay = ({ content }) => {
 
         return (
           <div>
-            <UpperCaseH3>{OVERVIEW[lang]}</UpperCaseH3>
+            <UpperCaseH3>{<Translate phrase="OVERVIEW" />}</UpperCaseH3>
             {/* {html} */}
             <span dangerouslySetInnerHTML={{ __html: html }} />
           </div>
@@ -52,11 +49,6 @@ const OverviewDisplay = ({ content }) => {
       }}
     </IntlContext.Consumer>
   )
-}
-
-const OVERVIEW = {
-  [NodeLocale.FR]: 'à propos',
-  [NodeLocale.EN]: 'overview',
 }
 
 export default Overview
