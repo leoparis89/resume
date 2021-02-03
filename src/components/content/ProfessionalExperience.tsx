@@ -3,10 +3,15 @@ import { jsx, css } from '@emotion/core'
 import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
-import { IntlContext, filterByuLang } from '../../intl/IntlContext'
+import {
+  IntlContext,
+  filterByLang,
+  NodeLocale,
+} from '../../contexts/IntlContext'
 import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
+
 const Work: React.FC = () => (
   <StaticQuery
     query={graphql`
@@ -64,7 +69,7 @@ const WorkDisplay = ({ content }) => {
         return (
           <div>
             <UpperCaseH3>{WORK[lang]}</UpperCaseH3>
-            {content.filter(filterByuLang(lang)).map(el => {
+            {content.filter(filterByLang(lang)).map(el => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
 
@@ -108,12 +113,12 @@ const WorkDisplay = ({ content }) => {
 }
 
 const WORK = {
-  fr: 'Projets',
-  en: 'Professional history',
+  [NodeLocale.FR]: 'Projets',
+  [NodeLocale.EN]: 'Professional history',
 }
 
 const CURRENT = {
-  fr: 'Actuel',
-  en: 'Current',
+  [NodeLocale.FR]: 'Actuel',
+  [NodeLocale.EN]: 'Current',
 }
 export default Work

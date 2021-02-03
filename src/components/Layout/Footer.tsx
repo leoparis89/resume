@@ -1,6 +1,7 @@
 import React from 'react'
 import LangToggle from '../togglers/LangToggle'
 // import MyToggle from './MyToggle'
+import Details from '../content/PersonalDetails'
 
 export default function Footer() {
   return (
@@ -12,7 +13,8 @@ export default function Footer() {
         margin: '80px 0',
       }}
     >
-      <div>Made with ♥ in Closure Labs® {new Date().getFullYear()}</div>
+      <Details />
+      <div>Made with Gatsby by Closure Labs® {new Date().getFullYear()}</div>
       <LangToggle />
     </footer>
   )

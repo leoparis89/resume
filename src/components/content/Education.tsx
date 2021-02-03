@@ -1,7 +1,7 @@
 import React from 'react'
 import showdown from 'showdown'
 import { graphql, StaticQuery } from 'gatsby'
-import { IntlContext, filterByuLang } from '../../intl/IntlContext'
+import { IntlContext, filterByLang } from '../../contexts/IntlContext'
 import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
@@ -40,7 +40,7 @@ const EducationDisplay = ({ content }) => (
       return (
         <div>
           <UpperCaseH3>{EDUCATION[lang]}</UpperCaseH3>
-          {content.filter(filterByuLang(lang)).map(el => {
+          {content.filter(filterByLang(lang)).map(el => {
             const html =
               el.specialty && converter.makeHtml(el.specialty.specialty)
 

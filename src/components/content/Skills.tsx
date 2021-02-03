@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, StaticQueryProps } from 'gatsby'
 import { UpperCaseH3, withLang } from '../common'
+import { NodeLocale } from '../../contexts/IntlContext'
 
 const SkillsDisplay = ({ skillName, lang }) => (
   <div>
@@ -10,6 +11,7 @@ const SkillsDisplay = ({ skillName, lang }) => (
 )
 
 const SkillDisplayWithLang = withLang(SkillsDisplay)
+
 const Skills: React.FC = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -28,8 +30,8 @@ const Skills: React.FC = ({ children }) => (
 )
 
 const SKILLS = {
-  fr: 'Technologies',
-  en: 'Skills and technologies',
+  [NodeLocale.FR]: 'Stack technique',
+  [NodeLocale.EN]: 'Tech stack',
 }
 
 export default Skills
