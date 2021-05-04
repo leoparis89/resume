@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import { Container } from 'reactstrap'
 import IntlProvider from '../../contexts/IntlContext'
-import ThemeProvider from '../../contexts/themeContext'
+import Bar from '../../contexts/themeContext'
 import Footer from './Footer'
 import Header from './Header'
 
@@ -24,7 +24,7 @@ const Layout = ({ children }: Props) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}

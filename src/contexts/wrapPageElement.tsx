@@ -1,11 +1,11 @@
 import React from 'react'
 import IntlProvider from './IntlContext'
-import ThemeProvider from './themeContext'
+import Bar from './MyMuiTheme'
 
 export const wrapPageElement = ({ element }) => {
   return (
-    <ThemeProvider>
+    <Bar>
       <IntlProvider>{element}</IntlProvider>
-    </ThemeProvider>
+    </Bar>
   )
 }
