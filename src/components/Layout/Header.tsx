@@ -20,7 +20,7 @@ function getNodes<T>(obj: any): T[] {
   return []
 }
 
-export const byLang = (lang: NodeLocale) => node => {
+export const byLang = (lang: NodeLocale) => (node) => {
   return node.node_locale === lang
 }
 export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
@@ -60,7 +60,7 @@ const Header: React.FC = ({ children }) => {
           }
         }
       `}
-      render={data => {
+      render={(data) => {
         const [props] = getNodes<HeaderProps>(data).filter(byLang(lang))
 
         return <HeaderDisplay {...props} />
@@ -77,14 +77,16 @@ type HeaderProps = {
 export const HeaderDisplay: React.FC<HeaderProps> = ({ name, job }) => {
   return (
     <header
-      style={{
-        background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
-        color: '#FBFFA7',
-        padding: 10,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}
+      style={
+        {
+          // background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
+          // color: '#FBFFA7',
+          // padding: 10,
+          // display: 'flex',
+          // justifyContent: 'space-between',
+          // alignItems: 'center',
+        }
+      }
     >
       <span>
         <h1>{name}</h1>

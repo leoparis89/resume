@@ -1,11 +1,8 @@
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import Helmet from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import { Container } from 'reactstrap'
-import IntlProvider from '../../contexts/IntlContext'
-import Bar from '../../contexts/themeContext'
 import Footer from './Footer'
 import Header from './Header'
 
@@ -26,7 +23,7 @@ const Layout = ({ children }: Props) => (
     `}
     render={(data) => (
       <>
-        <Helmet
+        {/* <Helmet
           title={data.site.siteMetadata.title}
           meta={[
             {
@@ -40,7 +37,7 @@ const Layout = ({ children }: Props) => (
           ]}
         >
           <html lang="en" />
-        </Helmet>
+        </Helmet> */}
         <Container>
           <Header />
           {children}

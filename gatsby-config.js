@@ -12,8 +12,10 @@ module.exports = {
     title: 'Lev Kowalski Curriculum Vitae',
   },
   plugins: [
+    'gatsby-plugin-top-layout',
     `gatsby-plugin-ts-config`,
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
