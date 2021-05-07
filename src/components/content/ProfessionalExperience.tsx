@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -87,18 +86,18 @@ const WorkDisplay = ({ content }) => {
                     <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
                     <ul
                       style={{ margin: 0 }}
-                      css={css`
-                        li {
-                          display: inline;
-                          font-style: italic;
-                        }
-                        li::after {
-                          content: ' • ';
-                        }
-                        li:last-child:after {
-                          content: '';
-                        }
-                      `}
+                      // css={css`
+                      //   li {
+                      //     display: inline;
+                      //     font-style: italic;
+                      //   }
+                      //   li::after {
+                      //     content: ' • ';
+                      //   }
+                      //   li:last-child:after {
+                      //     content: '';
+                      //   }
+                      // `}
                     >
                       {el.stack.map((s) => (
                         <li key={s}>{s}</li>

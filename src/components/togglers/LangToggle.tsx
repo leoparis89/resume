@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { styled } from '@material-ui/core'
 import React, { useContext } from 'react'
 import Toggle from 'react-toggle'
 import { IntlContext } from '../../contexts/IntlContext'

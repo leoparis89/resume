@@ -3,7 +3,6 @@ import Toggle from 'react-toggle'
 import { IoIosSunny, IoIosMoon } from 'react-icons/io'
 import React, { Component, useContext } from 'react'
 
-import { Global, css } from '@emotion/core'
 import { LangLabel } from './LangToggle'
 import { ThemeContext } from '../../contexts/themeContext'
 

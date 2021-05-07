@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
 
-import { Global, css } from '@emotion/core'
-
 export const ThemeContext = React.createContext({
   dark: false,
   toggleDark: () => {},
 })
 
-const ThemeProvider = props => {
+const ThemeProvider = (props) => {
   const [dark, setDark] = useState(false)
 
-  const toggleDark = () => setDark(dark => !dark)
+  const toggleDark = () => setDark((dark) => !dark)
 
   return (
     <ThemeContext.Provider value={{ dark, toggleDark }}>
-      <Global
+      {/* <Global
         styles={css`
           body {
             color: ${dark ? 'black' : 'white'};
@@ -29,7 +27,7 @@ const ThemeProvider = props => {
             text-shadow: initial;
           }
         `}
-      />
+      /> */}
       {props.children}
     </ThemeContext.Provider>
   )

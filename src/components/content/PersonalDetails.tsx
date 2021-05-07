@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { styled } from '@material-ui/core'
 import { graphql, StaticQuery, StaticQueryProps } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
