@@ -25,7 +25,3 @@ export default function TopLayout(props) {
     </React.Fragment>
   )
 }
-
-TopLayout.propTypes = {
-  children: PropTypes.node,
-}
