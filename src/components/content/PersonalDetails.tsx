@@ -7,7 +7,7 @@ import { withLang } from '../common'
 
 const IconStyle = { fontSize: '1.5em', margin: '0 10px 0 0' }
 
-const UnstyledLink = styled.a({
+const UnstyledLink = styled('a')({
   color: 'inherit',
   textDecoration: 'none',
   textShadow: 'none',
