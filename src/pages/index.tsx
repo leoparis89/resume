@@ -11,13 +11,6 @@ class IndexPage extends Component {
       <Layout>
         <Container>
           <Overview />
-          <BigLink to="/goo">Projets</BigLink>
-          <BigLink to="/skills">Stack technique</BigLink>
-          <BigLink to="/work">
-            <Translate phrase="WORK" />
-          </BigLink>
-          {/* <BigLink to="/goo">Contact</BigLink> */}
-          <BigLink to="/goo">Formation</BigLink>
         </Container>
       </Layout>
     )

@@ -5,6 +5,7 @@ import 'react-toggle/style.css' // for ES6 modules
 import { Container } from 'reactstrap'
 import Footer from './Footer'
 import Header from './Header'
+import { NavBar } from './NavBar'
 
 type Props = {
   children: React.ReactNode
@@ -38,8 +39,9 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet> */}
+        <NavBar />
         <Container>
-          <Header />
+          {/* <Header /> */}
           {children}
           <Footer />
         </Container>
