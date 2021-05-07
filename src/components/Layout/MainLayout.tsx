@@ -1,8 +1,7 @@
-import 'bootstrap/dist/css/bootstrap-grid.css'
+import { Container } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import 'react-toggle/style.css' // for ES6 modules
-import { Container } from 'reactstrap'
 import Footer from './Footer'
 import Header from './Header'
 import { NavBar } from './NavBar'

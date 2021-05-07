@@ -1,7 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby'
 import { prop, compose, filter } from 'ramda'
 import React, { useContext } from 'react'
-import { Container } from 'reactstrap'
 import { IntlContext, NodeLocale, useLang } from '../../contexts/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
