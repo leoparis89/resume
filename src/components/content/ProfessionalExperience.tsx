@@ -1,9 +1,9 @@
+import { Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
 import { filterByLang, IntlContext } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
-import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
 
@@ -65,9 +65,9 @@ const WorkDisplay = ({ content }) => {
       {({ lang }) => {
         return (
           <div>
-            <UpperCaseH3>
+            <Typography component="h2" variant="h4">
               <Translate phrase="WORK" />
-            </UpperCaseH3>
+            </Typography>
             {content.filter(filterByLang(lang)).map((el) => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
