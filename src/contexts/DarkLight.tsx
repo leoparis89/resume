@@ -1,3 +1,4 @@
+import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core'
 import React, { useState } from 'react'
 
 export enum Theme {
@@ -10,7 +11,7 @@ export const ThemeContext = React.createContext({
   toggleTheme: () => {},
 })
 
-export const DarkLight: React.FC = (props) => {
+export const DarkLightThemeProvider: React.FC = (props) => {
   const [theme, setTheme] = useState<Theme>(Theme.Light)
 
   const toggleTheme = () => {
@@ -19,9 +20,18 @@ export const DarkLight: React.FC = (props) => {
     )
   }
 
+  const muiTheme = createMuiTheme({
+    palette: {
+      type: theme,
+    },
+  })
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {props.children}
+      <ThemeProvider theme={muiTheme}>
+        <CssBaseline />
+        {props.children}
+      </ThemeProvider>
     </ThemeContext.Provider>
   )
 }

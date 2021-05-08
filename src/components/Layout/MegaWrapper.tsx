@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { DarkLightThemeProvider } from '../../contexts/DarkLight'
 
 export default function MegaWrapper(props: any) {
   return (
@@ -17,28 +18,7 @@ export default function MegaWrapper(props: any) {
           rel="stylesheet"
         /> */}
       </Helmet>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {props.children}
-      </ThemeProvider>
+      <DarkLightThemeProvider>{props.children}</DarkLightThemeProvider>
     </React.Fragment>
   )
 }
-
-const theme = createMuiTheme({
-  palette: {
-    type: 'light',
-    // primary: {
-    //   main: '#556cd6',
-    // },
-    // secondary: {
-    //   main: '#19857b',
-    // },
-    // error: {
-    //   main: red.A400,
-    // },
-    // background: {
-    //   default: '#fff',
-    // },
-  },
-})
