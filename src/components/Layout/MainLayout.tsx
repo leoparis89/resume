@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import 'react-toggle/style.css' // for ES6 modules
 import Footer from './Footer'
+import MegaWrapper from './MegaWrapper'
 import { NavBar } from './NavBar'
 
 type Props = {
@@ -37,12 +38,14 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet> */}
-        <NavBar />
-        <Container>
-          {/* <Header /> */}
-          {children}
-          <Footer />
-        </Container>
+        <MegaWrapper>
+          <NavBar />
+          <Container>
+            {/* <Header /> */}
+            {children}
+            <Footer />
+          </Container>
+        </MegaWrapper>
       </>
     )}
   />
