@@ -1,8 +1,8 @@
+import { red } from '@material-ui/core/colors'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { ThemeProvider } from '@material-ui/core/styles'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import theme from '../../theme'
 
 export default function MegaWrapper(props: any) {
   return (
@@ -24,3 +24,20 @@ export default function MegaWrapper(props: any) {
     </React.Fragment>
   )
 }
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#556cd6',
+    },
+    secondary: {
+      main: '#19857b',
+    },
+    error: {
+      main: red.A400,
+    },
+    background: {
+      default: '#fff',
+    },
+  },
+})
