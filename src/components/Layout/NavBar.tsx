@@ -11,6 +11,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import React from 'react'
 import { useLang } from '../../contexts/IntlContext'
 import { Link } from '../common'
+import ThemeToggle from '../togglers/ThemeToggle'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()
@@ -36,7 +37,8 @@ export const NavBar: React.FC = (props) => {
             <Link to="work">
               <Button>Experiences</Button>
             </Link>
-            <Button>Login</Button>
+            <Button>bar</Button>
+            <ThemeToggle />
             {/* <BigLink to="/goo">Projets</BigLink>
             <BigLink to="/skills">Stack technique</BigLink>
             <BigLink to="/work">

@@ -6,19 +6,6 @@ import React, { Component, useContext } from 'react'
 import { LangLabel } from './LangToggle'
 import { ThemeContext } from '../../contexts/themeContext'
 
-const themeData = {
-  light: {
-    text: 'black',
-    background: 'linear-gradient(210deg,#ffffff,#ead3bb,#c6e3fb)',
-    headers: 'black',
-  },
-  dark: {
-    text: 'white',
-    background: ' linear-gradient(217deg, #090625, #4b2e6e, #2b768e);',
-    headers: '#ADEFD1FF',
-  },
-}
-
 const ThemeToggle = () => {
   const { toggleDark } = useContext(ThemeContext)
 
