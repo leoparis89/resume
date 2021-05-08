@@ -1,15 +1,18 @@
+import React, { useContext } from 'react'
+import { IoIosMoon, IoIosSunny } from 'react-icons/io'
 import Toggle from 'react-toggle'
-
-import { IoIosSunny, IoIosMoon } from 'react-icons/io'
-import React, { Component, useContext } from 'react'
-
+import { ThemeContext } from '../../contexts/DarkLight'
 import { LangLabel } from './LangToggle'
-import { ThemeContext } from '../../contexts/themeContext'
 
 const ThemeToggle = () => {
-  const { toggleDark } = useContext(ThemeContext)
+  const { toggleTheme, theme } = useContext(ThemeContext)
 
-  return <ToggleBtn onChange={toggleDark} />
+  return (
+    <div>
+      <ToggleBtn onChange={toggleTheme} />
+      {theme}
+    </div>
+  )
 }
 
 export default ThemeToggle

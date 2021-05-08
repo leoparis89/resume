@@ -1,6 +1,7 @@
 import { styled } from '@material-ui/core'
-import React, { useContext } from 'react'
+import React, { createContext, useContext } from 'react'
 import Toggle from 'react-toggle'
+import { ThemeContext } from '../../contexts/DarkLight'
 import { IntlContext } from '../../contexts/IntlContext'
 
 export const ToggleWrapper = styled('div')({ margin: '10px 10px' })
@@ -17,7 +18,7 @@ const MyLangLabel = styled(LangLabel)({
 })
 
 const IntlToggle = () => {
-  const { toggleLang } = useContext(IntlContext)
+  const { toggleTheme } = useContext(ThemeContext)
 
   return (
     <ToggleWrapper>
@@ -26,7 +27,7 @@ const IntlToggle = () => {
           checked: <MyLangLabel>en</MyLangLabel>,
           unchecked: <MyLangLabel>fr</MyLangLabel>,
         }}
-        onChange={toggleLang}
+        onChange={toggleTheme}
       />
     </ToggleWrapper>
   )

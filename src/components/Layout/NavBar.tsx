@@ -1,17 +1,15 @@
 import {
   AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  makeStyles,
   Button,
   Container,
+  makeStyles,
+  Toolbar,
+  Typography,
 } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
 import React from 'react'
 import { useLang } from '../../contexts/IntlContext'
+import { ThemeToggle } from '../../contexts/themeToggle'
 import { Link } from '../common'
-import ThemeToggle from '../togglers/ThemeToggle'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()

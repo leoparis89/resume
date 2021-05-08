@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 export enum Theme {
   Dark = 'dark',
@@ -14,6 +14,7 @@ export const DarkLight: React.FC = (props) => {
   const [theme, setTheme] = useState<Theme>(Theme.Light)
 
   const toggleTheme = () => {
+    debugger
     setTheme((prevTheme) =>
       prevTheme === Theme.Dark ? Theme.Light : Theme.Dark
     )

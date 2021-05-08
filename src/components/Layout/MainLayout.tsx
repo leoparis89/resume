@@ -2,6 +2,7 @@ import { Container } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import 'react-toggle/style.css' // for ES6 modules
+import { DarkLight } from '../../contexts/DarkLight'
 import Footer from './Footer'
 import Header from './Header'
 import { NavBar } from './NavBar'
@@ -38,12 +39,14 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet> */}
-        <NavBar />
-        <Container>
-          {/* <Header /> */}
-          {children}
-          <Footer />
-        </Container>
+        <DarkLight>
+          <NavBar />
+          <Container>
+            {/* <Header /> */}
+            {children}
+            <Footer />
+          </Container>
+        </DarkLight>
       </>
     )}
   />
