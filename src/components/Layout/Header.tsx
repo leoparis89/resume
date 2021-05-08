@@ -1,7 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby'
-import { prop, compose, filter } from 'ramda'
-import React, { useContext } from 'react'
-import { IntlContext, NodeLocale, useLang } from '../../contexts/IntlContext'
+import React from 'react'
+import { NodeLocale, useLang } from '../../contexts/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
 function getNodes<T>(obj: any): T[] {
@@ -44,8 +43,6 @@ export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
 // }
 
 const Header: React.FC = ({ children }) => {
-  const lang = useLang()
-
   return (
     <StaticQuery
       query={graphql`
@@ -60,6 +57,7 @@ const Header: React.FC = ({ children }) => {
         }
       `}
       render={(data) => {
+        const lang = useLang()
         const [props] = getNodes<HeaderProps>(data).filter(byLang(lang))
 
         return <HeaderDisplay {...props} />

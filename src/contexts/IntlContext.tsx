@@ -17,9 +17,9 @@ export const useLang = () => {
   const { lang } = useContext(IntlContext)
 
   return lang
+  // return lang
 }
-
-const IntlProvider = props => {
+const IntlProvider = (props) => {
   const [lang, setLang] = useState<NodeLocale>(NodeLocale.FR)
 
   const toggleLang = () => {
@@ -34,7 +34,7 @@ const IntlProvider = props => {
   )
 }
 
-export const filterByLang = lang => node =>
+export const filterByLang = (lang) => (node) =>
   (node.node_locale as string).includes(lang)
 
 export default IntlProvider

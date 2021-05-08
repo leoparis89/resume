@@ -9,16 +9,19 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import React from 'react'
+import { useLang } from '../../contexts/IntlContext'
 import { Link } from '../common'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()
+  const lang = useLang()
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Container>
           <Toolbar>
+            {/* {lang} */}
             {/* <IconButton
                 edge="start"
                 className={classes.menuButton}

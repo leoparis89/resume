@@ -65,9 +65,9 @@ const WorkDisplay = ({ content }) => {
       {({ lang }) => {
         return (
           <div>
-            <Typography component="h2" variant="h4">
+            {/* <Typography component="h2" variant="h4">
               <Translate phrase="WORK" />
-            </Typography>
+            </Typography> */}
             {content.filter(filterByLang(lang)).map((el) => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
