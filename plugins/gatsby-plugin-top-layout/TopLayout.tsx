@@ -20,7 +20,6 @@ export default function TopLayout(props) {
       </Helmet>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        coolt
         {props.children}
       </ThemeProvider>
     </React.Fragment>
