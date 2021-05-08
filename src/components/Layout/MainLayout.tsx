@@ -4,7 +4,6 @@ import React from 'react'
 import 'react-toggle/style.css' // for ES6 modules
 import { DarkLight } from '../../contexts/DarkLight'
 import Footer from './Footer'
-import Header from './Header'
 import { NavBar } from './NavBar'
 
 type Props = {
