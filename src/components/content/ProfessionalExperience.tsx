@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -84,21 +83,7 @@ const WorkDisplay = ({ content }) => {
                     </h5>
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                     <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
-                    <ul
-                      style={{ margin: 0 }}
-                      // css={css`
-                      //   li {
-                      //     display: inline;
-                      //     font-style: italic;
-                      //   }
-                      //   li::after {
-                      //     content: ' • ';
-                      //   }
-                      //   li:last-child:after {
-                      //     content: '';
-                      //   }
-                      // `}
-                    >
+                    <ul style={{ margin: 0 }}>
                       {el.stack.map((s) => (
                         <li key={s}>{s}</li>
                       ))}
