@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core'
 import React from 'react'
 import { useLang } from '../../contexts/IntlContext'
-import { ThemeToggle } from '../../contexts/themeToggle'
+import { ThemeToggle } from '../togglers/ThemeToggle'
 import { Link } from '../common'
 
 export const NavBar: React.FC = (props) => {
