@@ -27,17 +27,18 @@ export default function MegaWrapper(props: any) {
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: '#556cd6',
-    },
-    secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      default: '#fff',
-    },
+    type: 'light',
+    // primary: {
+    //   main: '#556cd6',
+    // },
+    // secondary: {
+    //   main: '#19857b',
+    // },
+    // error: {
+    //   main: red.A400,
+    // },
+    // background: {
+    //   default: '#fff',
+    // },
   },
 })
