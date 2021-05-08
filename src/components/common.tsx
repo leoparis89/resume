@@ -12,4 +12,7 @@ export const withLang = (Comp) => (props) => (
   </IntlContext.Consumer>
 )
 
-export const Link = styled(VanillaLink)({ textDecoration: 'none' })
+export const Link = styled(VanillaLink)({
+  color: 'inherit',
+  textDecoration: 'inherit',
+})

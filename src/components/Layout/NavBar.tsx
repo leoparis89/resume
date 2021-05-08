@@ -20,30 +20,13 @@ export const NavBar: React.FC = (props) => {
       <AppBar position="static">
         <Container>
           <Toolbar>
-            {/* {lang} */}
-            {/* <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon />
-              </IconButton> */}
             <Typography variant="h6" className={classes.title}>
-              Lev Kowalski
+              <Link to="/">Lev Kowalski</Link>
             </Typography>
-            <Link to="work">
+            <Link to="/work">
               <Button>Experiences</Button>
             </Link>
-            <Button>bar</Button>
             <ThemeToggle />
-            {/* <BigLink to="/goo">Projets</BigLink>
-            <BigLink to="/skills">Stack technique</BigLink>
-            <BigLink to="/work">
-              <Translate phrase="WORK" />
-            </BigLink>
-            {/* <BigLink to="/goo">Contact</BigLink> */}
-            {/* <BigLink to="/goo">Formation</BigLink> */}
           </Toolbar>
         </Container>
       </AppBar>
