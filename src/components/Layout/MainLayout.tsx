@@ -5,14 +5,13 @@ import { Helmet } from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import { DarkLightThemeProvider } from '../../contexts/DarkLight'
 import Footer from './Footer'
-import MegaWrapper from './MegaWrapper'
 import { NavBar } from './NavBar'
 
 type Props = {
   children: React.ReactNode
 }
 
-const Layout = ({ children }: Props) => (
+const MainLayout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -54,4 +53,4 @@ const Layout = ({ children }: Props) => (
   />
 )
 
-export default Layout
+export default MainLayout
