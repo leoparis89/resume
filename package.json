@@ -10,6 +10,7 @@
     "@types/react-helmet": "^6.1.1",
     "dotenv": "^9.0.0",
     "gatsby": "^3.4.2",
+    "gatsby-plugin-image": "^1.4.1",
     "gatsby-plugin-manifest": "^3.4.0",
     "gatsby-plugin-material-ui": "^3.0.1",
     "gatsby-plugin-offline": "^4.4.0",
