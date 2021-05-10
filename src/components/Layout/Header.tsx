@@ -1,8 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby'
-import { prop, compose, filter } from 'ramda'
-import React, { useContext } from 'react'
-import { Container } from 'reactstrap'
-import { IntlContext, NodeLocale, useLang } from '../../contexts/IntlContext'
+import React from 'react'
+import { NodeLocale, useLang } from '../../contexts/IntlContext'
 import ThemeToggle from '../togglers/ThemeToggle'
 
 function getNodes<T>(obj: any): T[] {
@@ -20,7 +18,7 @@ function getNodes<T>(obj: any): T[] {
   return []
 }
 
-export const byLang = (lang: NodeLocale) => node => {
+export const byLang = (lang: NodeLocale) => (node) => {
   return node.node_locale === lang
 }
 export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
@@ -45,8 +43,6 @@ export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
 // }
 
 const Header: React.FC = ({ children }) => {
-  const lang = useLang()
-
   return (
     <StaticQuery
       query={graphql`
@@ -60,7 +56,8 @@ const Header: React.FC = ({ children }) => {
           }
         }
       `}
-      render={data => {
+      render={(data) => {
+        const lang = useLang()
         const [props] = getNodes<HeaderProps>(data).filter(byLang(lang))
 
         return <HeaderDisplay {...props} />
@@ -77,14 +74,16 @@ type HeaderProps = {
 export const HeaderDisplay: React.FC<HeaderProps> = ({ name, job }) => {
   return (
     <header
-      style={{
-        background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
-        color: '#FBFFA7',
-        padding: 10,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}
+      style={
+        {
+          // background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
+          // color: '#FBFFA7',
+          // padding: 10,
+          // display: 'flex',
+          // justifyContent: 'space-between',
+          // alignItems: 'center',
+        }
+      }
     >
       <span>
         <h1>{name}</h1>

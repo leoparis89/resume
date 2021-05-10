@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-ts-config`,
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -33,9 +34,6 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
     },
   ],
 }

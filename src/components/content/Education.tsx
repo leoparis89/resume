@@ -1,8 +1,7 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { graphql, StaticQuery } from 'gatsby'
-import { IntlContext, filterByLang } from '../../contexts/IntlContext'
-import { UpperCaseH3 } from '../common'
+import { filterByLang, IntlContext } from '../../contexts/IntlContext'
 
 const converter = new showdown.Converter()
 const Education: React.FC = ({ children }) => (
@@ -24,7 +23,7 @@ const Education: React.FC = ({ children }) => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       return (
         <EducationDisplay
           content={data.allContentfulDiploma.edges.map(({ node }) => node)}
@@ -39,8 +38,8 @@ const EducationDisplay = ({ content }) => (
     {({ lang }) => {
       return (
         <div>
-          <UpperCaseH3>{EDUCATION[lang]}</UpperCaseH3>
-          {content.filter(filterByLang(lang)).map(el => {
+          <h3>{EDUCATION[lang]}</h3>
+          {content.filter(filterByLang(lang)).map((el) => {
             const html =
               el.specialty && converter.makeHtml(el.specialty.specialty)
 

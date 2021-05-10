@@ -1,11 +1,9 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core'
+import { Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
 import { filterByLang, IntlContext } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
-import { UpperCaseH3 } from '../common'
 
 const converter = new showdown.Converter()
 
@@ -67,9 +65,9 @@ const WorkDisplay = ({ content }) => {
       {({ lang }) => {
         return (
           <div>
-            <UpperCaseH3>
+            {/* <Typography component="h2" variant="h4">
               <Translate phrase="WORK" />
-            </UpperCaseH3>
+            </Typography> */}
             {content.filter(filterByLang(lang)).map((el) => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
@@ -85,21 +83,7 @@ const WorkDisplay = ({ content }) => {
                     </h5>
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                     <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
-                    <ul
-                      style={{ margin: 0 }}
-                      css={css`
-                        li {
-                          display: inline;
-                          font-style: italic;
-                        }
-                        li::after {
-                          content: ' • ';
-                        }
-                        li:last-child:after {
-                          content: '';
-                        }
-                      `}
-                    >
+                    <ul style={{ margin: 0 }}>
                       {el.stack.map((s) => (
                         <li key={s}>{s}</li>
                       ))}

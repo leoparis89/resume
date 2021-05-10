@@ -1,13 +1,12 @@
-import 'bootstrap/dist/css/bootstrap-grid.css'
+import { Box, Container } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
-import { Container } from 'reactstrap'
-import IntlProvider from '../../contexts/IntlContext'
-import ThemeProvider from '../../contexts/themeContext'
+import { DarkLightThemeProvider } from '../../contexts/DarkLight'
 import Footer from './Footer'
-import Header from './Header'
+import MegaWrapper from './MegaWrapper'
+import { NavBar } from './NavBar'
 
 type Props = {
   children: React.ReactNode
@@ -24,7 +23,7 @@ const Layout = ({ children }: Props) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}
@@ -38,14 +37,18 @@ const Layout = ({ children }: Props) => (
               content: 'Lev Kowalski, Typscript, Node, React, Gatsby',
             },
           ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <Container>
-          <Header />
-          {children}
-          <Footer />
-        </Container>
+        />
+        <DarkLightThemeProvider>
+          <NavBar />
+          <Box
+            minHeight="calc(100vh - 64px)"
+            display="flex"
+            flexDirection="column"
+          >
+            <Container style={{ flex: 1 }}>{children}</Container>
+            <Footer />
+          </Box>
+        </DarkLightThemeProvider>
       </>
     )}
   />

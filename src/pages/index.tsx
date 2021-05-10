@@ -1,25 +1,19 @@
+import { Container } from '@material-ui/core'
 import React, { Component } from 'react'
-import { Container } from 'reactstrap'
-import { BigLink } from '../components/common'
 import Overview from '../components/content/Overview'
-import Layout from '../components/Layout/MainLayout'
-import { Translate } from '../wording'
+import Layout from '../components/layout/MainLayout'
+import IntlProvider from '../contexts/IntlContext'
 
 class IndexPage extends Component {
   render() {
     return (
-      <Layout>
-        <Container>
-          <Overview />
-          <BigLink to="/goo">Projets</BigLink>
-          <BigLink to="/skills">Stack technique</BigLink>
-          <BigLink to="/work">
-            <Translate phrase="WORK" />
-          </BigLink>
-          {/* <BigLink to="/goo">Contact</BigLink> */}
-          <BigLink to="/goo">Formation</BigLink>
-        </Container>
-      </Layout>
+      <IntlProvider>
+        <Layout>
+          <Container>
+            <Overview />
+          </Container>
+        </Layout>
+      </IntlProvider>
     )
   }
 }

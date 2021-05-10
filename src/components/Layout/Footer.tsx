@@ -10,12 +10,12 @@ export default function Footer() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        margin: '80px 0',
+        margin: '40px 0',
+        width: '100%',
       }}
     >
       <Details />
       <div>Made with Gatsby by Closure Labs® {new Date().getFullYear()}</div>
-      <LangToggle />
     </footer>
   )
 }

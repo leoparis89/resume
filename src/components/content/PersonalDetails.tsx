@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { styled } from '@material-ui/core'
 import { graphql, StaticQuery, StaticQueryProps } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
@@ -7,7 +7,7 @@ import { withLang } from '../common'
 
 const IconStyle = { fontSize: '1.5em', margin: '0 10px 0 0' }
 
-const UnstyledLink = styled.a({
+const UnstyledLink = styled('a')({
   color: 'inherit',
   textDecoration: 'none',
   textShadow: 'none',

@@ -1,12 +1,10 @@
 import React from 'react'
-import { BigLink } from '../components/common'
 import Work from '../components/content/ProfessionalExperience'
-import Layout from '../components/Layout/MainLayout'
+import Layout from '../components/layout/MainLayout'
 
 const WorkPage = () => (
   <Layout>
     <Work />
-    <BigLink to="/">Go back to the homepage</BigLink>
   </Layout>
 )
 
