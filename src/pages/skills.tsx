@@ -1,11 +1,11 @@
 import React from 'react'
-import MainLayout from '../components/layout/Layout'
+import GOGO from '../components/bar/Foo'
 import Skills from '../components/content/Skills'
 
 const SecondPage = () => (
-  <MainLayout>
+  <GOGO>
     <Skills />
-  </MainLayout>
+  </GOGO>
 )
 
 export default SecondPage

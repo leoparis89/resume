@@ -1,11 +1,11 @@
 import React from 'react'
 import Work from '../components/content/ProfessionalExperience'
-import MainLayout from '../components/layout/Layout'
+import GOGO from '../components/bar/Foo'
 
 const WorkPage = () => (
-  <MainLayout>
+  <GOGO>
     <Work />
-  </MainLayout>
+  </GOGO>
 )
 
 export default WorkPage

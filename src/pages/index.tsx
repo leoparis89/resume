@@ -1,18 +1,18 @@
 import { Container } from '@material-ui/core'
 import React, { Component } from 'react'
 import Overview from '../components/content/Overview'
-import MainLayout from '../components/layout/Layout'
+import GOGO from '../components/bar/Foo'
 import IntlProvider from '../contexts/IntlContext'
 
 class IndexPage extends Component {
   render() {
     return (
       <IntlProvider>
-        <MainLayout>
+        <GOGO>
           <Container>
             <Overview />
           </Container>
-        </MainLayout>
+        </GOGO>
       </IntlProvider>
     )
   }

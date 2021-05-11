@@ -11,7 +11,7 @@ type Props = {
   children: React.ReactNode
 }
 
-const MainLayout = ({ children }: Props) => (
+const GOGO = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -53,4 +53,4 @@ const MainLayout = ({ children }: Props) => (
   />
 )
 
-export default MainLayout
+export default GOGO
