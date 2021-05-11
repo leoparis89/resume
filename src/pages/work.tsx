@@ -1,6 +1,6 @@
 import React from 'react'
 import Work from '../components/content/ProfessionalExperience'
-import MainLayout from '../components/layout/MainLayout'
+import MainLayout from '../components/layout/Layout'
 
 const WorkPage = () => (
   <MainLayout>
