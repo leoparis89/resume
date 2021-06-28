@@ -1,11 +1,11 @@
 import React from 'react'
-import GOGO from '../components/bar/Foo'
+import Layout from '../components/Layout/Layout'
 
 const NotFoundPage = () => (
-  <GOGO>
+  <Layout>
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </GOGO>
+  </Layout>
 )
 
 export default NotFoundPage

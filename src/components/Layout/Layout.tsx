@@ -4,6 +4,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import { DarkLightThemeProvider } from '../../contexts/DarkLight'
+import IntlProvider from '../../contexts/IntlContext'
 import Footer from './Footer'
 import { NavBar } from './NavBar'
 
@@ -11,7 +12,7 @@ type Props = {
   children: React.ReactNode
 }
 
-const GOGO = ({ children }: Props) => (
+const Layout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -37,20 +38,22 @@ const GOGO = ({ children }: Props) => (
             },
           ]}
         />
-        <DarkLightThemeProvider>
-          <NavBar />
-          <Box
-            minHeight="calc(100vh - 64px)"
-            display="flex"
-            flexDirection="column"
-          >
-            <Container style={{ flex: 1 }}>{children}</Container>
-            <Footer />
-          </Box>
-        </DarkLightThemeProvider>
+        <IntlProvider>
+          <DarkLightThemeProvider>
+            <NavBar />
+            <Box
+              minHeight="calc(100vh - 64px)"
+              display="flex"
+              flexDirection="column"
+            >
+              <Container style={{ flex: 1 }}>{children}</Container>
+              <Footer />
+            </Box>
+          </DarkLightThemeProvider>
+        </IntlProvider>
       </>
     )}
   />
 )
 
-export default GOGO
+export default Layout

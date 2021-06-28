@@ -1,9 +1,10 @@
-import { Typography } from '@material-ui/core'
+import { Divider } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
 import { filterByLang, IntlContext } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
+import { PageTitle } from '../common'
 
 const converter = new showdown.Converter()
 
@@ -38,36 +39,15 @@ const Work: React.FC = () => (
   />
 )
 
-const makeDate = (start, end) => {
-  const [sy, sm] = start.split('-')
-
-  const endDisplay = end ? (
-    <time>{`${end.split('-')[1]}/${end.split('-')[0]}`}</time>
-  ) : (
-    <span>
-      <Translate phrase="CURRENT" />
-    </span>
-  )
-
-  return (
-    <span>
-      <time>
-        {sm}/{sy}
-      </time>{' '}
-      - {endDisplay}
-    </span>
-  )
-}
-
 const WorkDisplay = ({ content }) => {
   return (
     <IntlContext.Consumer>
       {({ lang }) => {
         return (
           <div>
-            {/* <Typography component="h2" variant="h4">
+            <PageTitle>
               <Translate phrase="WORK" />
-            </Typography> */}
+            </PageTitle>
             {content.filter(filterByLang(lang)).map((el) => {
               const html =
                 el.description && converter.makeHtml(el.description.description)
@@ -89,7 +69,7 @@ const WorkDisplay = ({ content }) => {
                       ))}
                     </ul>
                   </div>
-                  <hr />
+                  <Divider />
                 </>
               )
             })}
@@ -97,6 +77,27 @@ const WorkDisplay = ({ content }) => {
         )
       }}
     </IntlContext.Consumer>
+  )
+}
+
+const makeDate = (start, end) => {
+  const [sy, sm] = start.split('-')
+
+  const endDisplay = end ? (
+    <time>{`${end.split('-')[1]}/${end.split('-')[0]}`}</time>
+  ) : (
+    <span>
+      <Translate phrase="CURRENT" />
+    </span>
+  )
+
+  return (
+    <span>
+      <time>
+        {sm}/{sy}
+      </time>{' '}
+      - {endDisplay}
+    </span>
   )
 }
 

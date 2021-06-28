@@ -4,6 +4,7 @@ import React from 'react'
 import showdown from 'showdown'
 import { filterByLang, IntlContext } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
+import { PageTitle } from '../common'
 
 const converter = new showdown.Converter()
 
@@ -41,13 +42,9 @@ const OverviewDisplay = ({ content }) => {
 
         return (
           <>
-            <Typography
-              component="h2"
-              variant="h4"
-              style={{ textTransform: 'uppercase' }}
-            >
+            <PageTitle>
               <Translate phrase="OVERVIEW" />
-            </Typography>
+            </PageTitle>
             <span dangerouslySetInnerHTML={{ __html: html }} />
           </>
         )

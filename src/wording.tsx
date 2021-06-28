@@ -20,7 +20,9 @@ const translations = {
   },
 }
 
-export const Translate: React.FC<{ phrase: string }> = ({ phrase }) => {
+export const Translate: React.FC<{ phrase: keyof typeof translations }> = ({
+  phrase,
+}) => {
   const lang = useLang()
 
   return <>{translations[phrase][lang]}</>

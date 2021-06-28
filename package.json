@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.11.2",
     "@types/ramda": "^0.27.40",
     "@types/react-helmet": "^6.1.1",
+    "clsx": "^1.1.1",
     "dotenv": "^9.0.0",
     "gatsby": "^3.4.2",
     "gatsby-plugin-image": "^1.4.1",

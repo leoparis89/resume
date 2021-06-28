@@ -14,6 +14,8 @@ import { useLang } from '../../contexts/IntlContext'
 import { ThemeToggle } from '../togglers/ThemeToggle'
 import { Link } from '../common'
 import LangToggle from '../togglers/LangToggle'
+import TemporaryDrawer from './Drawer'
+import { Translate } from '../../wording'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()
@@ -24,11 +26,14 @@ export const NavBar: React.FC = (props) => {
       <AppBar position="static">
         <Container>
           <Toolbar>
+            <TemporaryDrawer />
             <Typography variant="h6" className={classes.title}>
               <Link to="/">Lev Kowalski</Link>
             </Typography>
             <Link to="/work">
-              <Button>Experiences</Button>
+              <Button>
+                <Translate phrase="WORK" />
+              </Button>
             </Link>
             <LangToggle />
             <ThemeToggle />
