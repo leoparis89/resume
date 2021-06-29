@@ -8,11 +8,7 @@ import IntlProvider from '../../contexts/IntlContext'
 import Footer from './Footer'
 import { NavBar } from './NavBar'
 
-type Props = {
-  children: React.ReactNode
-}
-
-const Layout = ({ children }: Props) => (
+const Layout: React.FC = ({ children }: any) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

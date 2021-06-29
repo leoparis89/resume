@@ -24,21 +24,21 @@ export const NavBar: React.FC = (props) => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Container>
-          <Toolbar>
-            <TemporaryDrawer />
-            <Typography variant="h6" className={classes.title}>
-              <Link to="/">Lev Kowalski</Link>
-            </Typography>
-            <Link to="/work">
-              <Button>
-                <Translate phrase="WORK" />
-              </Button>
-            </Link>
-            <LangToggle />
-            <ThemeToggle />
-          </Toolbar>
-        </Container>
+        {/* <Container> */}
+        <Toolbar>
+          <TemporaryDrawer />
+          <Typography variant="h6" className={classes.title}>
+            <Link to="/">Lev Kowalski</Link>
+          </Typography>
+          <Link to="/work">
+            <Button>
+              <Translate phrase="WORK" />
+            </Button>
+          </Link>
+          <LangToggle />
+          <ThemeToggle />
+        </Toolbar>
+        {/* </Container> */}
       </AppBar>
     </div>
   )

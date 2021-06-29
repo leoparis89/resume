@@ -27,3 +27,8 @@ export const Translate: React.FC<{ phrase: keyof typeof translations }> = ({
 
   return <>{translations[phrase][lang]}</>
 }
+export const useTranslator = () => {
+  const lang = useLang()
+
+  return (phrase: keyof typeof translations) => translations[phrase][lang]
+}
