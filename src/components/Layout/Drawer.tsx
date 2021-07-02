@@ -11,6 +11,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { Link } from '../common'
 import { useTranslator } from '../../wording'
+import { Divider } from '@material-ui/core'
 
 const useStyles = makeStyles({
   list: {
@@ -66,9 +67,23 @@ export default function TemporaryDrawer() {
       <Divider /> */}
         <List>
           <Link to="/work">
-            <ListItem button key={'bar'}>
+            <ListItem button>
               <ListItemIcon>{<MailIcon />}</ListItemIcon>
               <ListItemText primary={translator('WORK')} />
+            </ListItem>
+          </Link>
+          <Divider />
+          <Link to="/work">
+            <ListItem button>
+              <ListItemIcon>{<MailIcon />}</ListItemIcon>
+              <ListItemText primary={translator('EDUCATION')} />
+            </ListItem>
+          </Link>
+          <Divider />
+          <Link to="/work">
+            <ListItem button>
+              <ListItemIcon>{<MailIcon />}</ListItemIcon>
+              <ListItemText primary={translator('TECH_STACK')} />
             </ListItem>
           </Link>
         </List>

@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { filterByLang, IntlContext } from '../../contexts/IntlContext'
+import { filterByLang, IntlContext, useLang } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
 import { PageTitle } from '../common'
 
@@ -33,23 +33,21 @@ const Overview: React.FC = ({ children }) => (
 )
 
 const OverviewDisplay = ({ content }) => {
-  return (
-    <IntlContext.Consumer>
-      {({ lang }) => {
-        const html = converter.makeHtml(
-          content.filter(filterByLang(lang))[0].bio.bio
-        )
+  const lang = useLang()
 
-        return (
-          <>
-            <PageTitle>
-              <Translate phrase="OVERVIEW" />
-            </PageTitle>
-            <span dangerouslySetInnerHTML={{ __html: html }} />
-          </>
-        )
-      }}
-    </IntlContext.Consumer>
+  const html = converter.makeHtml(content.filter(filterByLang(lang))[0].bio.bio)
+
+  return (
+    <>
+      <PageTitle>
+        <Translate phrase="OVERVIEW" />
+      </PageTitle>
+      <Typography
+        variant="h5"
+        component="span"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </>
   )
 }
 

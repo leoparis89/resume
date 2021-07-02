@@ -1,8 +1,8 @@
-import { Divider } from '@material-ui/core'
+import { Divider, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { filterByLang, IntlContext } from '../../contexts/IntlContext'
+import { filterByLang, IntlContext, useLang } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
 import { PageTitle } from '../common'
 
@@ -40,43 +40,50 @@ const Work: React.FC = () => (
 )
 
 const WorkDisplay = ({ content }) => {
-  return (
-    <IntlContext.Consumer>
-      {({ lang }) => {
-        return (
-          <div>
-            <PageTitle>
-              <Translate phrase="WORK" />
-            </PageTitle>
-            {content.filter(filterByLang(lang)).map((el) => {
-              const html =
-                el.description && converter.makeHtml(el.description.description)
+  const lang = useLang()
 
-              return (
-                <>
-                  <div key={el.company}>
-                    <h3>
-                      {el.company} - {el.role}
-                    </h3>
-                    <h5 style={{ marginTop: 0 }}>
-                      {makeDate(el.startDate, el.endDate)}
-                    </h5>
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
-                    <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
-                    <ul style={{ margin: 0 }}>
-                      {el.stack.map((s) => (
-                        <li key={s}>{s}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Divider />
-                </>
-              )
-            })}
-          </div>
-        )
-      }}
-    </IntlContext.Consumer>
+  const contentByLang = content.filter(filterByLang(lang))
+
+  const { spacing } = useTheme()
+
+  return (
+    <div>
+      <PageTitle>
+        <Translate phrase="WORK" />
+      </PageTitle>
+      <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+        {contentByLang.map((el, i) => {
+          const html =
+            el.description && converter.makeHtml(el.description.description)
+
+          return (
+            <>
+              <li
+                key={el.company}
+                style={{ marginBottom: spacing(5), marginTop: spacing(5) }}
+              >
+                <div>
+                  <h3>
+                    {el.company} - {el.role}
+                  </h3>
+                  <h5 style={{ marginTop: 0 }}>
+                    {makeDate(el.startDate, el.endDate)}
+                  </h5>
+                  <div dangerouslySetInnerHTML={{ __html: html }} />
+                  <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
+                  <ul style={{ margin: 0 }}>
+                    {el.stack.map((s) => (
+                      <li key={s}>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+              {i < contentByLang.length - 1 && <Divider variant="middle" />}
+            </>
+          )
+        })}
+      </ul>
+    </div>
   )
 }
 

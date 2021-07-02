@@ -18,6 +18,14 @@ const translations = {
     [NodeLocale.FR]: 'Retour',
     [NodeLocale.EN]: 'Go back',
   },
+  EDUCATION: {
+    [NodeLocale.FR]: 'Formation',
+    [NodeLocale.EN]: 'Education',
+  },
+  TECH_STACK: {
+    [NodeLocale.FR]: 'Stack technique',
+    [NodeLocale.EN]: 'Tech stack',
+  },
 }
 
 export const Translate: React.FC<{ phrase: keyof typeof translations }> = ({

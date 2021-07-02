@@ -12,7 +12,7 @@ export const ThemeContext = React.createContext({
 })
 
 export const DarkLightThemeProvider: React.FC = (props) => {
-  const [theme, setTheme] = useState<Theme>(Theme.Light)
+  const [theme, setTheme] = useState<Theme>(Theme.Dark)
 
   const toggleTheme = () => {
     setTheme((prevTheme) =>
