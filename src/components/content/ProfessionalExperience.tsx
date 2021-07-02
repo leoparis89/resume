@@ -47,7 +47,7 @@ const WorkDisplay = ({ content }) => {
   const { spacing } = useTheme()
 
   return (
-    <div>
+    <>
       <PageTitle>
         <Translate phrase="WORK" />
       </PageTitle>
@@ -57,33 +57,33 @@ const WorkDisplay = ({ content }) => {
             el.description && converter.makeHtml(el.description.description)
 
           return (
-            <>
-              <li
-                key={el.company}
-                style={{ marginBottom: spacing(5), marginTop: spacing(5) }}
-              >
-                <div>
-                  <h3>
-                    {el.company} - {el.role}
-                  </h3>
-                  <h5 style={{ marginTop: 0 }}>
-                    {makeDate(el.startDate, el.endDate)}
-                  </h5>
-                  <div dangerouslySetInnerHTML={{ __html: html }} />
-                  <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
-                  <ul style={{ margin: 0 }}>
-                    {el.stack.map((s) => (
-                      <li key={s}>{s}</li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-              {i < contentByLang.length - 1 && <Divider variant="middle" />}
-            </>
+            <li
+              key={el.company}
+              style={{ marginBottom: spacing(5), marginTop: spacing(5) }}
+            >
+              <div>
+                <h3>
+                  {el.company} - {el.role}
+                </h3>
+                <h5 style={{ marginTop: 0 }}>
+                  {makeDate(el.startDate, el.endDate)}
+                </h5>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
+                <ul style={{ margin: 0 }}>
+                  {el.stack.map((s, j) => (
+                    <li key={`${s}-${j}`}>{s}</li>
+                  ))}
+                </ul>
+              </div>
+              {i < contentByLang.length - 1 && (
+                <Divider variant="middle" style={{ marginTop: spacing(5) }} />
+              )}
+            </li>
           )
         })}
       </ul>
-    </div>
+    </>
   )
 }
 

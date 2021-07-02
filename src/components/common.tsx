@@ -25,7 +25,7 @@ export const PageTitle: React.FC = (props) => {
     <Typography
       component="h2"
       variant="h4"
-      style={{ textTransform: 'uppercase', marginTop: spacing(2) }}
+      style={{ textTransform: 'uppercase', marginTop: spacing(4) }}
     >
       {props.children}
     </Typography>

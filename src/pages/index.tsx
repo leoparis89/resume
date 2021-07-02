@@ -8,9 +8,7 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <Container>
-          <Overview />
-        </Container>
+        <Overview />
       </Layout>
     )
   }

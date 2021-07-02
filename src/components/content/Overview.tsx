@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core'
+import { makeStyles, Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -37,6 +37,8 @@ const OverviewDisplay = ({ content }) => {
 
   const html = converter.makeHtml(content.filter(filterByLang(lang))[0].bio.bio)
 
+  const classes = useStyles()
+
   return (
     <>
       <PageTitle>
@@ -46,10 +48,18 @@ const OverviewDisplay = ({ content }) => {
         variant="h5"
         component="span"
         dangerouslySetInnerHTML={{ __html: html }}
+        className={classes.root}
       />
     </>
   )
 }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    ['@global']: {
+      ['a:visited']: { color: theme.palette.text.primary },
+    },
+  },
+}))
 
 export default Overview
 
