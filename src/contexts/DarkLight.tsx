@@ -6,13 +6,15 @@ export enum Theme {
   Light = 'light',
 }
 
+const initialTheme = Theme.Dark
+
 export const ThemeContext = React.createContext({
-  theme: Theme.Light,
+  theme: initialTheme,
   toggleTheme: () => {},
 })
 
 export const DarkLightThemeProvider: React.FC = (props) => {
-  const [theme, setTheme] = useState<Theme>(Theme.Dark)
+  const [theme, setTheme] = useState<Theme>(initialTheme)
 
   const toggleTheme = () => {
     setTheme((prevTheme) =>
