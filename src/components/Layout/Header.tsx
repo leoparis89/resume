@@ -1,7 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { NodeLocale, useLang } from '../../contexts/IntlContext'
-import ThemeToggle from '../togglers/ThemeToggle'
 
 function getNodes<T>(obj: any): T[] {
   // tslint:disable-next-line:forin
@@ -27,21 +26,6 @@ export const filterNodesByLang = (lang: NodeLocale) => (nodes: any[]) => {
   return result[0]
 }
 
-// const withData = (query: TemplateStringsArray, Component: any) => {
-//   const lang = useLang()
-
-//   return (
-//     <StaticQuery
-//       query={graphql(query)}
-//       render={data => {
-//         const [props] = getNodes(data).filter(byLang(lang))
-
-//         return <Component {...props} />
-//       }}
-//     />
-//   )
-// }
-
 const Header: React.FC = ({ children }) => {
   return (
     <StaticQuery
@@ -60,7 +44,7 @@ const Header: React.FC = ({ children }) => {
         const lang = useLang()
         const [props] = getNodes<HeaderProps>(data).filter(byLang(lang))
 
-        return <HeaderDisplay {...props} />
+        return null
       }}
     />
   )
@@ -70,28 +54,3 @@ type HeaderProps = {
   name: string
   job: string
 }
-
-export const HeaderDisplay: React.FC<HeaderProps> = ({ name, job }) => {
-  return (
-    <header
-      style={
-        {
-          // background: 'linear-gradient(to right, #f28af2 0, #0091d9 100%)',
-          // color: '#FBFFA7',
-          // padding: 10,
-          // display: 'flex',
-          // justifyContent: 'space-between',
-          // alignItems: 'center',
-        }
-      }
-    >
-      <span>
-        <h1>{name}</h1>
-        <h2>{job}</h2>
-      </span>
-      <ThemeToggle />
-    </header>
-  )
-}
-
-export default Header

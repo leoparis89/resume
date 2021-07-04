@@ -1,5 +1,4 @@
 import React from 'react'
-import LangToggle from '../togglers/LangToggle'
 // import MyToggle from './MyToggle'
 import Details from '../content/PersonalDetails'
 

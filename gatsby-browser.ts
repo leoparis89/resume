@@ -6,4 +6,4 @@
 
 // You can delete this file if you're not using it
 
-// export { wrapPageElement } from './src/contexts/wrapPageElement'
+export { wrapPageElement } from './src/contexts/wrapPageElement'

@@ -3,7 +3,6 @@ import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
-import { DarkLightThemeProvider } from '../../contexts/DarkLight'
 import IntlProvider from '../../contexts/IntlContext'
 import Footer from './Footer'
 import { NavBar } from './NavBar'
@@ -34,19 +33,15 @@ const Layout: React.FC = ({ children }: any) => (
             },
           ]}
         />
-        <IntlProvider>
-          <DarkLightThemeProvider>
-            <NavBar />
-            <Box
-              minHeight="calc(100vh - 64px)"
-              display="flex"
-              flexDirection="column"
-            >
-              <Container style={{ flex: 1 }}>{children}</Container>
-              <Footer />
-            </Box>
-          </DarkLightThemeProvider>
-        </IntlProvider>
+        <NavBar />
+        <Box
+          minHeight="calc(100vh - 64px)"
+          display="flex"
+          flexDirection="column"
+        >
+          <Container style={{ flex: 1 }}>{children}</Container>
+          <Footer />
+        </Box>
       </>
     )}
   />
