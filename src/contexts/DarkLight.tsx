@@ -1,5 +1,5 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 export enum Theme {
   Dark = 'dark',
@@ -9,31 +9,46 @@ export enum Theme {
 const initialTheme = Theme.Dark
 
 export const ThemeContext = React.createContext({
-  theme: initialTheme,
+  dark: true,
   toggleTheme: () => {},
 })
 
-export const DarkLightThemeProvider: React.FC = (props) => {
-  const [theme, setTheme] = useState<Theme>(initialTheme)
+export const DarkLightStateProvider: React.FC = (props) => {
+  const [dark, setDark] = useState<boolean>(true)
 
   const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme === Theme.Dark ? Theme.Light : Theme.Dark
-    )
+    setDark((prevTheme) => !prevTheme)
   }
+
+  // const muiTheme = createMuiTheme({
+  //   palette: {
+  //     type: theme,
+  //   },
+  // })
+
+  return (
+    <ThemeContext.Provider value={{ dark, toggleTheme }}>
+      {/* <ThemeProvider theme={muiTheme}> */}
+      {/* <CssBaseline /> */}
+      {props.children}
+      {/* </ThemeProvider> */}
+    </ThemeContext.Provider>
+  )
+}
+
+export const DarkLightThemeProvider: React.FC = (props) => {
+  const { dark } = useContext(ThemeContext)
 
   const muiTheme = createMuiTheme({
     palette: {
-      type: theme,
+      type: dark ? Theme.Dark : Theme.Light,
     },
   })
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <ThemeProvider theme={muiTheme}>
-        <CssBaseline />
-        {props.children}
-      </ThemeProvider>
-    </ThemeContext.Provider>
+    <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      {props.children}
+    </ThemeProvider>
   )
 }

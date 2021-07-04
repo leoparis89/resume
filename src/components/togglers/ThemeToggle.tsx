@@ -3,9 +3,9 @@ import React, { useContext } from 'react'
 import { Theme, ThemeContext } from '../../contexts/DarkLight'
 
 export const ThemeToggle = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  const { dark, toggleTheme } = useContext(ThemeContext)
 
-  return <IOSSwitch onClick={toggleTheme} checked={theme === Theme.Dark} />
+  return <IOSSwitch onClick={toggleTheme} checked={dark} />
 }
 
 const IOSSwitch = withStyles((theme) => ({
