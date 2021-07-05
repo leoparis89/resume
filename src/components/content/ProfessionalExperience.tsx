@@ -53,7 +53,7 @@ const WorkDisplay = ({ content }) => {
       </PageTitle>
       <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
         {contentByLang.map((el, i) => {
-          const html =
+          const description =
             el.description && converter.makeHtml(el.description.description)
 
           return (
@@ -68,15 +68,27 @@ const WorkDisplay = ({ content }) => {
                 <h5 style={{ marginTop: 0 }}>
                   {makeDate(el.startDate, el.endDate)}
                 </h5>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <div dangerouslySetInnerHTML={{ __html: description }} />
                 <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
-                <ul style={{ margin: 0 }}>
+                <ul
+                  style={{
+                    listStyleType: 'none',
+                  }}
+                >
                   {el.stack.map((s, j) => (
-                    <li key={`${s}-${j}`}>{s}</li>
+                    <li
+                      style={{
+                        display: 'inline',
+                      }}
+                      key={`${s}-${j}`}
+                    >
+                      {s}
+                      {notLast(j, el.stack) && <Separator />}
+                    </li>
                   ))}
                 </ul>
               </div>
-              {i < contentByLang.length - 1 && (
+              {notLast(i, contentByLang) && (
                 <Divider variant="middle" style={{ marginTop: spacing(5) }} />
               )}
             </li>
@@ -86,6 +98,10 @@ const WorkDisplay = ({ content }) => {
     </>
   )
 }
+
+const notLast = (index, array) => index < array.length - 1
+
+const Separator = () => <span> // </span>
 
 const makeDate = (start, end) => {
   const [sy, sm] = start.split('-')
