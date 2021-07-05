@@ -4,6 +4,7 @@ import {
   MenuItem,
   Select,
   styled,
+  useTheme,
 } from '@material-ui/core'
 import { Translate } from '@material-ui/icons'
 import React, { useContext } from 'react'
@@ -13,9 +14,10 @@ export const ToggleWrapper = styled('div')({ margin: '10px 10px' })
 
 const IntlToggle = () => {
   const { toggleLang, lang } = useContext(IntlContext)
+  const { spacing } = useTheme()
 
   return (
-    <FormControl>
+    <FormControl style={{ marginRight: spacing(2) }}>
       <Select
         value={lang}
         onChange={(e) => {
