@@ -1,5 +1,4 @@
 import React from 'react'
-// import MyToggle from './MyToggle'
 import Details from '../content/PersonalDetails'
 
 export default function Footer() {

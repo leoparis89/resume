@@ -4,7 +4,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
 import { DarkLightThemeProvider } from '../../contexts/DarkLight'
-import IntlProvider from '../../contexts/IntlContext'
 import Footer from './Footer'
 import { NavBar } from './NavBar'
 

@@ -1,10 +1,12 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { filterByLang, IntlContext } from '../../contexts/IntlContext'
+import { filterByLang, IntlContext, useLang } from '../../contexts/IntlContext'
+import { Translate } from '../../wording'
+import { PageTitle } from '../common'
 
 const converter = new showdown.Converter()
-const Education: React.FC = ({ children }) => (
+const Education: React.FC = () => (
   <StaticQuery
     query={graphql`
       query education {
@@ -33,36 +35,31 @@ const Education: React.FC = ({ children }) => (
   />
 )
 
-const EducationDisplay = ({ content }) => (
-  <IntlContext.Consumer>
-    {({ lang }) => {
-      return (
-        <div>
-          <h3>{EDUCATION[lang]}</h3>
-          {content.filter(filterByLang(lang)).map((el) => {
-            const html =
-              el.specialty && converter.makeHtml(el.specialty.specialty)
+const EducationDisplay = ({ content }) => {
+  const lang = useLang()
 
-            return (
-              <div key={el.university}>
-                <h4>{el.university} </h4>
-                <div>
-                  {el.name} {el.graduationDate.split('-')[0]}
-                </div>
-                <div>
-                  <span dangerouslySetInnerHTML={{ __html: html }} />
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      )
-    }}
-  </IntlContext.Consumer>
-)
+  return (
+    <>
+      <PageTitle>
+        <Translate phrase="EDUCATION" />
+      </PageTitle>
+      {content.filter(filterByLang(lang)).map((el) => {
+        const html = el.specialty && converter.makeHtml(el.specialty.specialty)
 
-const EDUCATION = {
-  fr: 'Diplômes',
-  en: 'Education',
+        return (
+          <div key={el.university}>
+            <h4>{el.university} </h4>
+            <div>
+              {el.name} {el.graduationDate.split('-')[0]}
+            </div>
+            <div>
+              <span dangerouslySetInnerHTML={{ __html: html }} />
+            </div>
+          </div>
+        )
+      })}
+    </>
+  )
 }
+
 export default Education
