@@ -30,7 +30,4 @@ const IntlProvider = (props) => {
   )
 }
 
-export const filterByLang = (lang) => (node) =>
-  (node.node_locale as string).includes(lang)
-
 export default IntlProvider

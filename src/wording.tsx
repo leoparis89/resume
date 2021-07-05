@@ -40,3 +40,6 @@ export const useTranslator = () => {
 
   return (phrase: keyof typeof translations) => translations[phrase][lang]
 }
+
+export const filterByLang = (lang) => (node) =>
+  (node.node_locale as string).includes(lang)

@@ -2,8 +2,8 @@ import { Divider, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { filterByLang, IntlContext, useLang } from '../../contexts/IntlContext'
-import { Translate } from '../../wording'
+import { useLang } from '../../contexts/IntlContext'
+import { filterByLang, Translate } from '../../wording'
 import { PageTitle } from '../common'
 
 const converter = new showdown.Converter()
