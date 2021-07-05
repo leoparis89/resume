@@ -1,8 +1,6 @@
-import { Container } from '@material-ui/core'
 import React, { Component } from 'react'
 import Overview from '../components/content/Overview'
-import Layout from '../components/Layout/Layout'
-import IntlProvider from '../contexts/IntlContext'
+import Layout from '../components/layout/Layout'
 
 class IndexPage extends Component {
   render() {

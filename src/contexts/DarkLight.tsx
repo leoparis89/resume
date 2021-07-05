@@ -6,8 +6,6 @@ export enum Theme {
   Light = 'light',
 }
 
-const initialTheme = Theme.Dark
-
 export const ThemeContext = React.createContext({
   dark: true,
   toggleTheme: () => {},
@@ -20,18 +18,9 @@ export const DarkLightStateProvider: React.FC = (props) => {
     setDark((prevTheme) => !prevTheme)
   }
 
-  // const muiTheme = createMuiTheme({
-  //   palette: {
-  //     type: theme,
-  //   },
-  // })
-
   return (
     <ThemeContext.Provider value={{ dark, toggleTheme }}>
-      {/* <ThemeProvider theme={muiTheme}> */}
-      {/* <CssBaseline /> */}
       {props.children}
-      {/* </ThemeProvider> */}
     </ThemeContext.Provider>
   )
 }
