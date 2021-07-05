@@ -13,12 +13,8 @@ export const IntlContext = React.createContext<{
   toggleLang: () => {},
 })
 
-export const useLang = () => {
-  const { lang } = useContext(IntlContext)
+export const useLang = () => useContext(IntlContext).lang
 
-  return lang
-  // return lang
-}
 const IntlProvider = (props) => {
   const [lang, setLang] = useState<NodeLocale>(NodeLocale.FR)
 
