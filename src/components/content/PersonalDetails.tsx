@@ -42,13 +42,13 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
   return (
     <div>
       <UnstyledLink href={'mailto:' + email} target="_blank">
-        <IoIosMail style={IconStyle} />
+        <IoIosMail size={30} style={IconStyle} />
       </UnstyledLink>
       <UnstyledLink href={'http://' + github} target="_blank">
-        <FaGithub style={IconStyle} />
+        <FaGithub size={30} style={IconStyle} />
       </UnstyledLink>
       <UnstyledLink href={'http://' + linkedin} target="_blank">
-        <FaLinkedin style={IconStyle} />
+        <FaLinkedin size={30} style={IconStyle} />
       </UnstyledLink>
     </div>
   )
