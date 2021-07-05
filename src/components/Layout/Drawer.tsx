@@ -73,7 +73,7 @@ export default function TemporaryDrawer() {
             </ListItem>
           </Link>
           <Divider />
-          <Link to="/work">
+          <Link to="/education">
             <ListItem button>
               <ListItemIcon>{<MailIcon />}</ListItemIcon>
               <ListItemText primary={translator('EDUCATION')} />
