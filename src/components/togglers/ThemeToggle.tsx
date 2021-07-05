@@ -1,9 +1,9 @@
 import { Switch, withStyles } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { Theme, ThemeContext } from '../../contexts/DarkLight'
+import { ThemeStateContext } from '../../contexts/DarkLight'
 
 export const ThemeToggle = () => {
-  const { dark, toggleTheme } = useContext(ThemeContext)
+  const { dark, toggleTheme } = useContext(ThemeStateContext)
 
   return <IOSSwitch onClick={toggleTheme} checked={dark} />
 }
