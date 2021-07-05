@@ -1,3 +1,4 @@
+import { Box, Typography, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -44,18 +45,18 @@ const EducationDisplay = ({ content }) => {
         <Translate phrase="EDUCATION" />
       </PageTitle>
       {content.filter(filterByLang(lang)).map((el) => {
-        const html = el.specialty && converter.makeHtml(el.specialty.specialty)
+        const { spacing } = useTheme()
 
         return (
-          <div key={el.university}>
-            <h4>{el.university} </h4>
-            <div>
+          <Box key={el.university} marginBottom={spacing(1)}>
+            <Typography variant="h5" component="h5" gutterBottom>
+              {el.university}
+            </Typography>
+            <Typography variant="h6">
               {el.name} {el.graduationDate.split('-')[0]}
-            </div>
-            <div>
-              <span dangerouslySetInnerHTML={{ __html: html }} />
-            </div>
-          </div>
+            </Typography>
+            <Typography variant="h6">{el.specialty.specialty}</Typography>
+          </Box>
         )
       })}
     </>

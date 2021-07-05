@@ -1,3 +1,4 @@
+import { Divider } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
@@ -5,13 +6,12 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import { makeStyles } from '@material-ui/core/styles'
-import MailIcon from '@material-ui/icons/Mail'
+import { Build, Computer, LocalLibrary } from '@material-ui/icons'
 import MenuIcon from '@material-ui/icons/Menu'
 import clsx from 'clsx'
 import React from 'react'
-import { Link } from '../common'
 import { useTranslator } from '../../wording'
-import { Divider } from '@material-ui/core'
+import { Link } from '../common'
 
 const useStyles = makeStyles({
   list: {
@@ -68,21 +68,21 @@ export default function TemporaryDrawer() {
         <List>
           <Link to="/work">
             <ListItem button>
-              <ListItemIcon>{<MailIcon />}</ListItemIcon>
+              <ListItemIcon>{<Computer />}</ListItemIcon>
               <ListItemText primary={translator('WORK')} />
             </ListItem>
           </Link>
           <Divider />
           <Link to="/education">
             <ListItem button>
-              <ListItemIcon>{<MailIcon />}</ListItemIcon>
+              <ListItemIcon>{<LocalLibrary />}</ListItemIcon>
               <ListItemText primary={translator('EDUCATION')} />
             </ListItem>
           </Link>
           <Divider />
           <Link to="/work">
             <ListItem button>
-              <ListItemIcon>{<MailIcon />}</ListItemIcon>
+              <ListItemIcon>{<Build />}</ListItemIcon>
               <ListItemText primary={translator('TECH_STACK')} />
             </ListItem>
           </Link>

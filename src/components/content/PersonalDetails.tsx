@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core'
+import { Box, styled, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery, StaticQueryProps } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
@@ -39,8 +39,10 @@ const PersonalData: React.FC = () => (
 const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
   const { city, email, github, linkedin } = contentfulPersonalDetails
 
+  const { spacing } = useTheme()
+
   return (
-    <div>
+    <Box margin={`${spacing(1)}px 0`}>
       <UnstyledLink href={'mailto:' + email} target="_blank">
         <IoIosMail size={30} style={IconStyle} />
       </UnstyledLink>
@@ -50,7 +52,7 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
       <UnstyledLink href={'http://' + linkedin} target="_blank">
         <FaLinkedin size={30} style={IconStyle} />
       </UnstyledLink>
-    </div>
+    </Box>
   )
 }
 

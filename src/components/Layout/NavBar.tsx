@@ -2,20 +2,16 @@ import {
   AppBar,
   Button,
   Container,
-  InputAdornment,
   makeStyles,
-  MenuItem,
-  TextField,
   Toolbar,
   Typography,
 } from '@material-ui/core'
 import React from 'react'
 import { useLang } from '../../contexts/IntlContext'
-import { ThemeToggle } from '../togglers/ThemeToggle'
 import { Link } from '../common'
 import LangToggle from '../togglers/LangToggle'
+import { ThemeToggle } from '../togglers/ThemeToggle'
 import TemporaryDrawer from './Drawer'
-import { Translate } from '../../wording'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()
@@ -28,13 +24,10 @@ export const NavBar: React.FC = (props) => {
           <Toolbar style={{ paddingLeft: 0, paddingRight: 0 }}>
             <TemporaryDrawer />
             <Typography variant="h6" className={classes.title}>
-              <Link to="/">Lev Kowalski</Link>
+              <Link to="/">
+                <Button>Lev Kowalski</Button>
+              </Link>
             </Typography>
-            {/* <Link to="/work">
-            <Button>
-              <Translate phrase="WORK" />
-            </Button>
-          </Link> */}
             <LangToggle />
             <ThemeToggle />
           </Toolbar>
