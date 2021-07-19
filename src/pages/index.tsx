@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Overview from '../components/content/Overview'
-import Layout from '../components/bar/Layout'
+import Layout from '../components/layout/Layout'
 
 class IndexPage extends Component {
   render() {
