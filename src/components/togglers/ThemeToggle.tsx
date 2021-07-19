@@ -1,10 +1,11 @@
-import { Switch, withStyles } from '@material-ui/core'
+import { colors, styled, Switch, withStyles } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { ThemeStateContext } from '../../contexts/DarkLight'
 
 import Toggle from 'react-toggle'
 
 import { IoIosSunny, IoIosMoon } from 'react-icons/io'
+import { NightsStay, WbSunny } from '@material-ui/icons'
 export const ThemeToggle = () => {
   const { dark, toggleTheme } = useContext(ThemeStateContext)
 
@@ -65,12 +66,19 @@ export const ThemeToggle = () => {
 //   )
 // })
 
+const Wrapper = styled('div')({
+  display: 'flex',
+  height: '100%',
+  flexDirection: 'column',
+  alignItems: 'center',
+})
+
 export const IOSSwitch = (props) => (
   <Toggle
     onChange={props.onChange}
     icons={{
-      unchecked: <IoIosMoon color="yellow" />,
-      checked: <IoIosSunny color="yellow" />,
+      unchecked: <NightsStay style={{ fontSize: 12 }} />,
+      checked: <WbSunny style={{ fontSize: 12, color: colors.yellow[100] }} />,
     }}
   />
 )

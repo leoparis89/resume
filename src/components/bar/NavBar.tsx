@@ -15,7 +15,7 @@ import LangToggle from '../togglers/LangToggle'
 import { ThemeToggle } from '../togglers/ThemeToggle'
 import TemporaryDrawer from './Drawer'
 
-const DARK_BG = 'rgb(22 27 79)'
+const DARK_BG = 'linear-gradient(0.3turn, rgb(24 37 42), rgb(71 65 120))'
 const LIGHT_BG = '#dcefed'
 
 export const NavBar: React.FC = (props) => {
