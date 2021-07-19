@@ -1,22 +1,18 @@
 import {
   AppBar,
   Button,
-  colors,
   Container,
   makeStyles,
   Toolbar,
   Typography,
 } from '@material-ui/core'
 import React from 'react'
-import { useThemeState } from '../../contexts/DarkLight'
+import { DARK_BG, LIGHT_BG, useThemeState } from '../../contexts/DarkLight'
 import { useLang } from '../../contexts/IntlContext'
 import { Link } from '../common'
 import LangToggle from '../togglers/LangToggle'
 import { ThemeToggle } from '../togglers/ThemeToggle'
 import TemporaryDrawer from './Drawer'
-
-const DARK_BG = 'linear-gradient(0.3turn, rgb(24 37 42), rgb(71 65 120))'
-const LIGHT_BG = '#dcefed'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()
