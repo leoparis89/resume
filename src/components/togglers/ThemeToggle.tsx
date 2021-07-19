@@ -7,7 +7,7 @@ import { ThemeStateContext } from '../../contexts/DarkLight'
 export const ThemeToggle = () => {
   const { dark, toggleTheme } = useContext(ThemeStateContext)
 
-  return <IOSSwitch onClick={toggleTheme} checked={dark} />
+  return <IOSSwitch onChange={toggleTheme} checked={dark} />
 }
 
 export const IOSSwitch = (props) => (

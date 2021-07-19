@@ -31,6 +31,15 @@ export const DarkLightThemeProvider: React.FC = (props) => {
   const { dark } = useThemeState()
 
   const muiTheme = createMuiTheme({
+    overrides: {
+      MuiCssBaseline: {
+        '@global': {
+          body: {
+            background: (dark ? DARK_BG : 'red') + '!important',
+          },
+        },
+      },
+    },
     palette: {
       type: dark ? Theme.Dark : Theme.Light,
     },
@@ -43,3 +52,5 @@ export const DarkLightThemeProvider: React.FC = (props) => {
     </ThemeProvider>
   )
 }
+
+const DARK_BG = 'linear-gradient(0.3turn, rgb(24 37 42), rgb(71 65 120))'
