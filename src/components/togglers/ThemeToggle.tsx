@@ -7,12 +7,13 @@ import { ThemeStateContext } from '../../contexts/DarkLight'
 export const ThemeToggle = () => {
   const { dark, toggleTheme } = useContext(ThemeStateContext)
 
-  return <IOSSwitch onChange={toggleTheme} checked={dark} />
+  return <IOSSwitch onChange={toggleTheme} checked={!dark} />
 }
 
 export const IOSSwitch = (props) => (
   <Toggle
     onChange={props.onChange}
+    checked={props.checked}
     icons={{
       unchecked: <NightsStay style={{ fontSize: 12 }} />,
       checked: <WbSunny style={{ fontSize: 12, color: colors.yellow[100] }} />,
