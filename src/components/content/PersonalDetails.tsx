@@ -5,8 +5,6 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import { withLang } from '../common'
 
-const IconStyle = { fontSize: '1.5em', margin: '0 10px 0 0' }
-
 const UnstyledLink = styled('a')({
   color: 'inherit',
   textDecoration: 'none',
@@ -40,6 +38,8 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
   const { city, email, github, linkedin } = contentfulPersonalDetails
 
   const { spacing } = useTheme()
+
+  const IconStyle = { fontSize: '1.5em', marginRight: spacing(2) }
 
   return (
     <Box margin={`${spacing(1)}px 0`}>
