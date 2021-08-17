@@ -1,4 +1,4 @@
-import { Divider, useTheme } from '@material-ui/core'
+import { Divider, Typography, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -62,17 +62,35 @@ const WorkDisplay = ({ content }) => {
               style={{ marginBottom: spacing(5), marginTop: spacing(5) }}
             >
               <div>
-                <h3>
+                <Typography variant="h4" style={{ marginBottom: spacing(2) }}>
                   {el.company} - {el.role}
-                </h3>
-                <h5 style={{ marginTop: 0 }}>
+                </Typography>
+                <Typography
+                  variant="h6"
+                  style={{ marginBottom: spacing(2), opacity: 0.7 }}
+                >
                   {makeDate(el.startDate, el.endDate)}
-                </h5>
-                <div dangerouslySetInnerHTML={{ __html: description }} />
-                <h5 style={{ fontStyle: 'italic' }}>Stack:</h5>
+                </Typography>
+                <div
+                  dangerouslySetInnerHTML={{ __html: description }}
+                  style={{
+                    marginBottom: spacing(3),
+                    fontSize: spacing(2),
+                  }}
+                />
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginBottom: spacing(2),
+                    fontStyle: 'italic',
+                  }}
+                >
+                  Stack:
+                </Typography>
                 <ul
                   style={{
                     listStyleType: 'none',
+                    paddingLeft: 0,
                   }}
                 >
                   {el.stack.map((s, j) => (
