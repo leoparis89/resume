@@ -39,7 +39,11 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
 
   const { spacing } = useTheme()
 
-  const IconStyle = { fontSize: '1.5em', marginRight: spacing(2) }
+  const IconStyle = {
+    fontSize: '1.5em',
+    marginLeft: spacing(2),
+    marginRight: spacing(2),
+  }
 
   return (
     <Box margin={`${spacing(1)}px 0`}>
