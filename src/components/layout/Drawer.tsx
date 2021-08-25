@@ -80,7 +80,7 @@ export default function TemporaryDrawer() {
             </ListItem>
           </Link>
           <Divider />
-          <Link to="/work">
+          <Link to="/skills">
             <ListItem button>
               <ListItemIcon>{<Build />}</ListItemIcon>
               <ListItemText primary={translator('TECH_STACK')} />

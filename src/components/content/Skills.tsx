@@ -1,12 +1,17 @@
+import { Typography } from '@material-ui/core'
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import { StaticQuery, graphql, StaticQueryProps } from 'gatsby'
-import { NodeLocale } from '../../contexts/IntlContext'
-import { withLang } from '../common'
+import { Translate } from '../../wording'
+import { PageTitle, withLang } from '../common'
 
 const SkillsDisplay = ({ skillName, lang }) => (
   <div>
-    <h3>{SKILLS[lang]}</h3>
-    {skillName.join(' • ')}
+    <PageTitle>
+      <Translate phrase="SKILLS" />
+    </PageTitle>
+    <Typography variant="h5" component="span">
+      {skillName.join(' • ')}
+    </Typography>
   </div>
 )
 
@@ -28,10 +33,5 @@ const Skills: React.FC = ({ children }) => (
     }}
   />
 )
-
-const SKILLS = {
-  [NodeLocale.FR]: 'Stack technique',
-  [NodeLocale.EN]: 'Tech stack',
-}
 
 export default Skills

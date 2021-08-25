@@ -26,6 +26,10 @@ const translations = {
     [NodeLocale.FR]: 'Stack technique',
     [NodeLocale.EN]: 'Tech stack',
   },
+  SKILLS: {
+    [NodeLocale.FR]: 'Stack technique',
+    [NodeLocale.EN]: 'Tech stack',
+  },
 }
 
 type TranslationKey = keyof typeof translations
