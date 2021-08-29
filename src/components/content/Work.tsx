@@ -44,7 +44,7 @@ const WorkDisplay = ({ content }) => {
 
   const contentByLang = content.filter(filterByLang(lang))
 
-  const { spacing } = useTheme()
+  const { spacing, palette } = useTheme()
 
   return (
     <>
@@ -67,7 +67,10 @@ const WorkDisplay = ({ content }) => {
                 </Typography>
                 <Typography
                   variant="h6"
-                  style={{ marginBottom: spacing(2), opacity: 0.7 }}
+                  style={{
+                    marginBottom: spacing(2),
+                    color: palette.text.secondary,
+                  }}
                 >
                   {makeDate(el.startDate, el.endDate)}
                 </Typography>

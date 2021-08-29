@@ -56,7 +56,7 @@ const OverviewDisplay = ({ content }) => {
 const useStyles = makeStyles((theme) => ({
   root: {
     ['@global']: {
-      ['a:visited']: { color: theme.palette.text.primary },
+      ['a, a:visited']: { color: theme.palette.text.primary },
     },
   },
 }))
