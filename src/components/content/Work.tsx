@@ -62,7 +62,10 @@ const WorkDisplay = ({ content }) => {
               style={{ marginBottom: spacing(5), marginTop: spacing(5) }}
             >
               <div>
-                <Typography variant="h4" style={{ marginBottom: spacing(2) }}>
+                <Typography
+                  variant="h5"
+                  style={{ marginBottom: spacing(2), fontWeight: 'bold' }}
+                >
                   {el.company} - {el.role}
                 </Typography>
                 <Typography
