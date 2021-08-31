@@ -35,7 +35,7 @@ export const DarkLightThemeProvider: React.FC = (props) => {
       MuiCssBaseline: {
         '@global': {
           body: {
-            background: (dark ? DARK_BG : LIGHT_BG) + '!important',
+            background: (dark ? 'rgb(24 37 42)' : LIGHT_BG) + '!important',
           },
         },
       },
