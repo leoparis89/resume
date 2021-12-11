@@ -31,6 +31,21 @@ export const DarkLightThemeProvider: React.FC = (props) => {
   const { dark } = useThemeState()
 
   const muiTheme = createMuiTheme({
+    typography: {
+      fontFamily: [
+        'Futura',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+    },
     overrides: {
       MuiCssBaseline: {
         '@global': {
