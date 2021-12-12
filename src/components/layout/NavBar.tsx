@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   Button,
   Container,
   makeStyles,
@@ -21,6 +22,20 @@ export const NavBar: React.FC = (props) => {
   const { dark } = useThemeState()
 
   return (
+    <Container>
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        height={50}
+        alignItems="center"
+      >
+        <LangToggle />
+        <ThemeToggle />
+      </Box>
+    </Container>
+  )
+
+  return (
     <div className={classes.root}>
       <AppBar
         position="static"
@@ -29,7 +44,7 @@ export const NavBar: React.FC = (props) => {
       >
         <Container>
           <Toolbar style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <TemporaryDrawer />
+            {/* <TemporaryDrawer /> */}
             <Typography variant="h6" className={classes.title}>
               <Link to="/">
                 <Button>Lev Kowalski</Button>

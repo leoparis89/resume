@@ -41,11 +41,11 @@ const OverviewDisplay = ({ content }) => {
 
   return (
     <>
-      <PageTitle>
+      {/* <PageTitle>
         <Translate phrase="OVERVIEW" />
-      </PageTitle>
+      </PageTitle> */}
       <Typography
-        variant="h5"
+        variant="h3"
         component="span"
         dangerouslySetInnerHTML={{ __html: html }}
         className={classes.root}
