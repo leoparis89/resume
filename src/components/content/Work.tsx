@@ -1,4 +1,4 @@
-import { Divider, Typography, useTheme } from '@material-ui/core'
+import { Box, Divider, Typography, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -31,9 +31,21 @@ const Work: React.FC = () => (
     `}
     render={(data) => {
       return (
-        <WorkDisplay
-          content={data.allContentfulJob.edges.map(({ node }) => node)}
-        />
+        <Box>
+          <Typography variant="h1" component="h1">
+            Lev Kowalski
+          </Typography>
+          <Typography
+            variant="h2"
+            component="h5"
+            // style={{ fontStyle: 'italic' }}
+          >
+            Fullstack developer
+          </Typography>
+          <WorkDisplay
+            content={data.allContentfulJob.edges.map(({ node }) => node)}
+          />
+        </Box>
       )
     }}
   />
