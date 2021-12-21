@@ -1,4 +1,4 @@
-import { Box, Divider, Typography, useTheme } from '@material-ui/core'
+import { Box, Divider, Grid, Typography, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
@@ -7,6 +7,11 @@ import { filterByLang, Translate } from '../../wording'
 import { PageTitle } from '../common'
 
 const converter = new showdown.Converter()
+
+import Education from './Education'
+
+import Contact from './Contact'
+import Skills from './Skills'
 
 const Work: React.FC = () => (
   <StaticQuery
@@ -31,21 +36,46 @@ const Work: React.FC = () => (
     `}
     render={(data) => {
       return (
-        <Box>
-          <Typography variant="h1" component="h1">
-            Lev Kowalski
-          </Typography>
-          <Typography
-            variant="h2"
-            component="h5"
-            // style={{ fontStyle: 'italic' }}
-          >
-            Fullstack developer
-          </Typography>
-          <WorkDisplay
-            content={data.allContentfulJob.edges.map(({ node }) => node)}
-          />
-        </Box>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h1" component="h1">
+              Lev Kowalski
+            </Typography>
+
+            <Typography
+              variant="h2"
+              component="h6"
+              // style={{ fontStyle: 'italic' }}
+            >
+              Fullstack developer
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Contact />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Skills />
+          </Grid>
+          <Grid item xs={12} md={6} />
+          <Grid item xs={4} />
+          <Grid item xs={12}>
+            <WorkDisplay
+              content={data.allContentfulJob.edges.map(({ node }) => node)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Education />
+          </Grid>
+        </Grid>
+        // <Box>
+        //   <Typography
+        //     variant="h2"
+        //     component="h5"
+        //     // style={{ fontStyle: 'italic' }}
+        //   >
+        //     Fullstack developer
+        //   </Typography>
+        // </Box>
       )
     }}
   />
