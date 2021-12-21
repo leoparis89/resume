@@ -26,7 +26,7 @@ export const NavBar: React.FC = (props) => {
       <Box
         display="flex"
         justifyContent="flex-end"
-        height={50}
+        height={60}
         alignItems="center"
       >
         <LangToggle />
