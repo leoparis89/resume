@@ -1,5 +1,5 @@
 import React from 'react'
-import Details from '../content/PersonalDetails'
+import Details from '../content/Footer'
 
 export default function Footer() {
   return (

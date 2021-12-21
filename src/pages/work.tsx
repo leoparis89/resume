@@ -1,5 +1,5 @@
 import React from 'react'
-import Work from '../components/content/Work'
+import Work from '../components/content/Resume'
 import Layout from '../components/layout/Layout'
 
 const WorkPage = () => (

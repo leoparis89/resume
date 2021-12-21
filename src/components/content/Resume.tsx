@@ -67,15 +67,6 @@ const Work: React.FC = () => (
             <Education />
           </Grid>
         </Grid>
-        // <Box>
-        //   <Typography
-        //     variant="h2"
-        //     component="h5"
-        //     // style={{ fontStyle: 'italic' }}
-        //   >
-        //     Fullstack developer
-        //   </Typography>
-        // </Box>
       )
     }}
   />
