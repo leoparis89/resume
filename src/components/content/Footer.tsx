@@ -1,10 +1,9 @@
 import { Box, styled, useTheme } from '@material-ui/core'
-import { graphql, StaticQuery, StaticQueryProps, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import { useLang } from '../../contexts/IntlContext'
-import { withLang } from '../common'
 
 const UnstyledLink = styled('a')({
   color: 'inherit',
