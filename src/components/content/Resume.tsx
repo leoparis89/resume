@@ -1,20 +1,18 @@
-import { Box, Divider, Grid, Typography, useTheme } from '@material-ui/core'
-import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
+import { Divider, Grid, Typography, useTheme } from '@material-ui/core'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
 import { useLang } from '../../contexts/IntlContext'
 import { filterByLang, Translate } from '../../wording'
 import { PageTitle } from '../common'
+import Contact from './Contact'
+import Education from './Education'
+import Skills from './Skills'
 
 const converter = new showdown.Converter()
 
-import Education from './Education'
-
-import Contact from './Contact'
-import Skills from './Skills'
-
-const useAllContentfullJob = () =>
-  useStaticQuery(graphql`
+const useAllContentfullJob = () => {
+  return useStaticQuery(graphql`
     query work {
       allContentfulJob(sort: { order: DESC, fields: [startDate] }) {
         edges {
@@ -33,65 +31,45 @@ const useAllContentfullJob = () =>
       }
     }
   `)
+}
 
-const Work: React.FC = () => (
-  <StaticQuery
-    query={graphql`
-      query work {
-        allContentfulJob(sort: { order: DESC, fields: [startDate] }) {
-          edges {
-            node {
-              node_locale
-              company
-              role
-              startDate
-              endDate
-              stack
-              description {
-                description
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => {
-      return (
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h1" component="h1">
-              Lev Kowalski
-            </Typography>
+const Work: React.FC = () => {
+  const data = useAllContentfullJob()
 
-            <Typography
-              variant="h2"
-              component="h6"
-              // style={{ fontStyle: 'italic' }}
-            >
-              Fullstack developer
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Contact />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Skills />
-          </Grid>
-          <Grid item xs={12} md={6} />
-          <Grid item xs={4} />
-          <Grid item xs={12}>
-            <WorkDisplay
-              content={data.allContentfulJob.edges.map(({ node }) => node)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Education />
-          </Grid>
-        </Grid>
-      )
-    }}
-  />
-)
+  return (
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Typography variant="h1" component="h1">
+          Lev Kowalski
+        </Typography>
+
+        <Typography
+          variant="h2"
+          component="h6"
+          // style={{ fontStyle: 'italic' }}
+        >
+          Fullstack developer
+        </Typography>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Contact />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Skills />
+      </Grid>
+      <Grid item xs={12} md={6} />
+      <Grid item xs={4} />
+      <Grid item xs={12}>
+        <WorkDisplay
+          content={data.allContentfulJob.edges.map(({ node }) => node)}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <Education />
+      </Grid>
+    </Grid>
+  )
+}
 
 const WorkDisplay = ({ content }) => {
   const lang = useLang()
