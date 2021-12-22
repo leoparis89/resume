@@ -1,10 +1,16 @@
-import { Box, useTheme } from '@material-ui/core'
+import { Box, styled, useTheme } from '@material-ui/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import { useLang } from '../../contexts/IntlContext'
-import { UnstyledLink } from './UnstyledLink'
+
+const UnstyledLink = styled('a')({
+  color: 'inherit',
+  textDecoration: 'none',
+  textShadow: 'none',
+  backgroundImage: 'none',
+}) as any
 
 export const usePersonalDetails = () => {
   const data = useStaticQuery(graphql`
@@ -33,7 +39,6 @@ const Footer = ({ contentfulPersonalDetails, lang }) => {
   const { spacing } = useTheme()
 
   const IconStyle = {
-    fontSize: '1.5em',
     marginLeft: spacing(2),
     marginRight: spacing(2),
   }
