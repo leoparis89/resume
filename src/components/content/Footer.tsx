@@ -12,7 +12,7 @@ const UnstyledLink = styled('a')({
   backgroundImage: 'none',
 }) as any
 
-const usePersonalDetails = () => {
+export const usePersonalDetails = () => {
   const data = useStaticQuery(graphql`
     query personalDetails {
       contentfulPersonalDetails {

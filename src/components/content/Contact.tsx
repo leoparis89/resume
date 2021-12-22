@@ -1,16 +1,27 @@
-import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
+import { useLang } from '../../contexts/IntlContext'
 import * as wording from '../../wording'
-import { PageTitle, withLang } from '../common'
+import { PageTitle } from '../common'
+import { usePersonalDetails } from './Footer'
 
-const Contact = ({ skillName, lang }) => (
-  <div>
-    <PageTitle>
-      <wording.Translate phrase="CONTACT" />
-    </PageTitle>
-  </div>
-)
+const Contact = () => {
+  const { city, email, github, linkedin } = usePersonalDetails()
+  const lang = useLang()
 
-const SkillDisplayWithLang = withLang(Contact)
+  return (
+    <div>
+      <PageTitle>
+        <wording.Translate phrase="CONTACT" />
+      </PageTitle>
+
+      <ul>
+        <li>{email}</li>
+        <li>{city}</li>
+        <li>{github}</li>
+        <li>{linkedin}</li>
+      </ul>
+    </div>
+  )
+}
 
 export default Contact
