@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { useLang } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
-import { PageTitle, withLang } from '../common'
+import { PageTitle } from '../common'
 
 const useSkills = () => {
   return useStaticQuery(graphql`
