@@ -14,8 +14,8 @@ const Contact = () => {
         <wording.Translate phrase="CONTACT" />
       </PageTitle>
 
-      <ul>
-        <li>{email}</li>
+      <ul style={{ textDecoration: 'none' }}>
+        <li style={{ textDecoration: 'none' }}>{email}</li>
         <li>{city}</li>
         <li>{github}</li>
         <li>{linkedin}</li>

@@ -1,5 +1,5 @@
 import { Box, Divider, Grid, Typography, useTheme } from '@material-ui/core'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
 import { useLang } from '../../contexts/IntlContext'
@@ -12,6 +12,27 @@ import Education from './Education'
 
 import Contact from './Contact'
 import Skills from './Skills'
+
+const useAllContentfullJob = () =>
+  useStaticQuery(graphql`
+    query work {
+      allContentfulJob(sort: { order: DESC, fields: [startDate] }) {
+        edges {
+          node {
+            node_locale
+            company
+            role
+            startDate
+            endDate
+            stack
+            description {
+              description
+            }
+          }
+        }
+      }
+    }
+  `)
 
 const Work: React.FC = () => (
   <StaticQuery
