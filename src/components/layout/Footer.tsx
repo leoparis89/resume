@@ -1,5 +1,5 @@
 import React from 'react'
-import Details from '../content/Footer'
+import Details from '../content/FooterIcons'
 
 export default function Footer() {
   return (
