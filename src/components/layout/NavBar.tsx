@@ -13,7 +13,6 @@ import { useLang } from '../../contexts/IntlContext'
 import { Link } from '../common'
 import LangToggle from '../togglers/LangToggle'
 import { ThemeToggle } from '../togglers/ThemeToggle'
-import TemporaryDrawer from './Drawer'
 
 export const NavBar: React.FC = (props) => {
   const classes = useStyles()
