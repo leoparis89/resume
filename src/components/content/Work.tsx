@@ -1,5 +1,5 @@
 import { Divider, Typography, useTheme } from '@material-ui/core'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
 import { useLang } from '../../contexts/IntlContext'
@@ -8,36 +8,37 @@ import { PageTitle } from '../common'
 
 const converter = new showdown.Converter()
 
-const Work: React.FC = () => (
-  <StaticQuery
-    query={graphql`
-      query work {
-        allContentfulJob(sort: { order: DESC, fields: [startDate] }) {
-          edges {
-            node {
-              node_locale
-              company
-              role
-              startDate
-              endDate
-              stack
-              description {
-                description
-              }
+const useAllContentfullJob = () => {
+  return useStaticQuery(graphql`
+    query work {
+      allContentfulJob(sort: { order: DESC, fields: [startDate] }) {
+        edges {
+          node {
+            node_locale
+            company
+            role
+            startDate
+            endDate
+            stack
+            description {
+              description
             }
           }
         }
       }
-    `}
-    render={(data) => {
-      return (
-        <WorkDisplay
-          content={data.allContentfulJob.edges.map(({ node }) => node)}
-        />
-      )
-    }}
-  />
-)
+    }
+  `)
+}
+
+export const ConnectedWork = () => {
+  const data = useAllContentfullJob()
+
+  return (
+    <WorkDisplay
+      content={data.allContentfulJob.edges.map(({ node }) => node)}
+    />
+  )
+}
 
 const WorkDisplay = ({ content }) => {
   const lang = useLang()
@@ -147,5 +148,3 @@ const makeDate = (start, end) => {
     </span>
   )
 }
-
-export default Work

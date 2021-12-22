@@ -50,7 +50,7 @@ export const DarkLightThemeProvider: React.FC = (props) => {
       MuiCssBaseline: {
         '@global': {
           body: {
-            background: (dark ? 'rgb(24 37 42)' : LIGHT_BG) + '!important',
+            background: (dark ? DARK_BG : LIGHT_BG) + '!important',
           },
         },
       },
@@ -68,8 +68,8 @@ export const DarkLightThemeProvider: React.FC = (props) => {
   )
 }
 
-const makeBg = (col1, col2) => `linear-gradient(0.3turn, ${col1}, ${col2})`
+export const DARK_BG = '#19191b'
 
-export const DARK_BG = makeBg('rgb(24 37 42)', 'rgb(71 65 120)')
+export const LIGHT_BG = '#ffff'
 
-export const LIGHT_BG = makeBg('#ffff', '#ffff')
+// const makeBg = (col1, col2) => `linear-gradient(0.3turn, ${col1}, ${col2})`

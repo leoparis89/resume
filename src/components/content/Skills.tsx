@@ -1,8 +1,19 @@
 import { Typography } from '@material-ui/core'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+import { useLang } from '../../contexts/IntlContext'
 import { Translate } from '../../wording'
-import { PageTitle, withLang } from '../common'
+import { PageTitle } from '../common'
+
+const useSkills = () => {
+  return useStaticQuery(graphql`
+    query mySkills {
+      contentfulSkills {
+        skillName
+      }
+    }
+  `)
+}
 
 const SkillsDisplay = ({ skillName, lang }) => (
   <div>
@@ -15,23 +26,13 @@ const SkillsDisplay = ({ skillName, lang }) => (
   </div>
 )
 
-const SkillDisplayWithLang = withLang(SkillsDisplay)
+const ConnectedSkills: React.FC = ({ children }) => {
+  const lang = useLang()
+  const data = useSkills()
 
-const Skills: React.FC = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query mySkills {
-        contentfulSkills {
-          skillName
-        }
-      }
-    `}
-    render={(data) => {
-      return (
-        <SkillDisplayWithLang skillName={data.contentfulSkills.skillName} />
-      )
-    }}
-  />
-)
+  return (
+    <SkillsDisplay skillName={data.contentfulSkills.skillName} lang={lang} />
+  )
+}
 
-export default Skills
+export default ConnectedSkills

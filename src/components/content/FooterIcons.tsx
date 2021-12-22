@@ -1,9 +1,9 @@
 import { Box, styled, useTheme } from '@material-ui/core'
-import { graphql, StaticQuery, StaticQueryProps } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
-import { withLang } from '../common'
+import { useLang } from '../../contexts/IntlContext'
 
 const UnstyledLink = styled('a')({
   color: 'inherit',
@@ -12,35 +12,33 @@ const UnstyledLink = styled('a')({
   backgroundImage: 'none',
 }) as any
 
-const PersonalData: React.FC = () => (
-  <StaticQuery
-    query={graphql`
-      query personalDetails {
-        contentfulPersonalDetails {
-          city
-          email
-          github
-          linkedin
-        }
+export const usePersonalDetails = () => {
+  const data = useStaticQuery(graphql`
+    query personalDetails {
+      contentfulPersonalDetails {
+        city
+        email
+        github
+        linkedin
       }
-    `}
-    render={(data: StaticQueryProps) => {
-      return (
-        <PersonalDetailsWithLang
-          contentfulPersonalDetails={(data as any).contentfulPersonalDetails}
-        />
-      )
-    }}
-  />
-)
+    }
+  `)
 
-const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
+  return (data as any).contentfulPersonalDetails
+}
+
+const ConnectedFooter: React.FC = () => {
+  return (
+    <Footer contentfulPersonalDetails={usePersonalDetails()} lang={useLang()} />
+  )
+}
+
+const Footer = ({ contentfulPersonalDetails, lang }) => {
   const { city, email, github, linkedin } = contentfulPersonalDetails
 
   const { spacing } = useTheme()
 
   const IconStyle = {
-    fontSize: '1.5em',
     marginLeft: spacing(2),
     marginRight: spacing(2),
   }
@@ -60,6 +58,4 @@ const PersonalDetails = ({ contentfulPersonalDetails, lang }) => {
   )
 }
 
-const PersonalDetailsWithLang = withLang(PersonalDetails)
-
-export default PersonalData
+export default ConnectedFooter

@@ -17,7 +17,7 @@ const IntlToggle = () => {
   const { spacing } = useTheme()
 
   return (
-    <FormControl style={{ marginRight: spacing(2) }}>
+    <FormControl style={{ marginRight: spacing(3) }}>
       <Select
         value={lang}
         onChange={(e) => {
