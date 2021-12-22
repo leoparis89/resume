@@ -1,16 +1,10 @@
-import { Box, styled, useTheme } from '@material-ui/core'
+import { Box, useTheme } from '@material-ui/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import { useLang } from '../../contexts/IntlContext'
-
-const UnstyledLink = styled('a')({
-  color: 'inherit',
-  textDecoration: 'none',
-  textShadow: 'none',
-  backgroundImage: 'none',
-}) as any
+import { UnstyledLink } from './UnstyledLink'
 
 export const usePersonalDetails = () => {
   const data = useStaticQuery(graphql`
