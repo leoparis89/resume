@@ -30,13 +30,4 @@ const MyLi = styled('li')(({ theme }) => {
   return { fontSize: theme.spacing(2) }
 })
 
-const LI = (props) => (
-  <li>
-    {' '}
-    <Typography variant="button" {...props}>
-      {' '}
-      hello
-    </Typography>
-  </li>
-)
 export default Contact
