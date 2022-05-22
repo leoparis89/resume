@@ -96,17 +96,18 @@ const ExperienceDisplay = ({ content }) => {
             >
               <div>
                 <JobTitle {...el} />
-                <p
+                <Typography
+                  variant="body1"
+                  component="span"
                   dangerouslySetInnerHTML={{ __html: description }}
                   style={{
                     marginBottom: spacing(3),
-                    fontSize: spacing(2),
                   }}
                 />
                 <Typography
                   variant="h6"
                   style={{
-                    marginBottom: spacing(2),
+                    marginTop: spacing(2),
                     fontStyle: 'italic',
                   }}
                 >

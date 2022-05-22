@@ -1,4 +1,10 @@
-import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core'
+import {
+  createTheme,
+  responsiveFontSizes,
+  CssBaseline,
+  ThemeProvider,
+} from '@material-ui/core'
+
 import React, { useContext, useState } from 'react'
 
 export enum Theme {
@@ -6,13 +12,15 @@ export enum Theme {
   Light = 'light',
 }
 
+const initialIsDarkState = false
+
 export const ThemeStateContext = React.createContext({
-  dark: true,
+  dark: initialIsDarkState,
   toggleTheme: () => {},
 })
 
 export const DarkLightStateProvider: React.FC = (props) => {
-  const [dark, setDark] = useState<boolean>(true)
+  const [dark, setDark] = useState<boolean>(initialIsDarkState)
 
   const toggleTheme = () => {
     setDark((prevTheme) => !prevTheme)
@@ -30,7 +38,7 @@ export const useThemeState = () => useContext(ThemeStateContext)
 export const DarkLightThemeProvider: React.FC = (props) => {
   const { dark } = useThemeState()
 
-  const muiTheme = createMuiTheme({
+  const muiTheme = createTheme({
     typography: {
       fontFamily: [
         'Futura',
@@ -50,7 +58,7 @@ export const DarkLightThemeProvider: React.FC = (props) => {
       MuiCssBaseline: {
         '@global': {
           body: {
-            background: (dark ? DARK_BG : LIGHT_BG) + '!important',
+            // background: (dark ? DARK_BG : LIGHT_BG) + '!important',
           },
         },
       },
@@ -61,7 +69,7 @@ export const DarkLightThemeProvider: React.FC = (props) => {
   })
 
   return (
-    <ThemeProvider theme={muiTheme}>
+    <ThemeProvider theme={responsiveFontSizes(muiTheme)}>
       <CssBaseline />
       {props.children}
     </ThemeProvider>

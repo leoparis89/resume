@@ -1,4 +1,5 @@
-import { styled, useTheme } from '@material-ui/styles'
+import styled from '@emotion/styled'
+import { useTheme } from '@material-ui/core'
 import React from 'react'
 import { FaGithub, FaLinkedin, FaLocationArrow } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
@@ -45,12 +46,14 @@ const LiLink = (props) => (
     <MyLi>{props.children}</MyLi>
   </UnstyledLink>
 )
-const MyLi = styled('li')(({ theme }) => {
+const MyLi = styled('li')(() => {
+  const { spacing } = useTheme()
+
   return {
-    fontSize: theme.spacing(3),
+    fontSize: spacing(3),
     display: 'flex',
     alignItems: 'center',
-    paddingBottom: theme.spacing(1),
+    paddingBottom: spacing(1),
   }
 })
 
