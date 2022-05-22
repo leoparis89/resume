@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
-import { useLang } from '../../contexts/IntlContext'
+import { useLang } from '../../contexts/IntlProvider'
 
 const UnstyledLink = styled('a')({
   color: 'inherit',

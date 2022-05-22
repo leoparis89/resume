@@ -1,5 +1,5 @@
 import React from 'react'
-import { NodeLocale, useLang } from './contexts/IntlContext'
+import { NodeLocale, useLang } from './contexts/IntlProvider'
 
 const translations = {
   OVERVIEW: {

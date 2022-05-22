@@ -2,7 +2,7 @@ import { colors } from '@material-ui/core'
 import { NightsStay, WbSunny } from '@material-ui/icons'
 import React, { useContext } from 'react'
 import Toggle from 'react-toggle'
-import { ThemeStateContext } from '../../contexts/DarkLight'
+import { ThemeStateContext } from '../../contexts/ThemeProvider'
 
 export const ThemeToggle = () => {
   const { dark, toggleTheme } = useContext(ThemeStateContext)

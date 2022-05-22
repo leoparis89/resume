@@ -1,8 +1,6 @@
-import React from 'react'
-import { IntlContext } from '../contexts/IntlContext'
-
 import { Link as VanillaLink } from 'gatsby'
 import { styled, Typography, useTheme } from '@material-ui/core'
+import React from 'react'
 
 export const Link = styled(VanillaLink)({
   color: 'inherit',

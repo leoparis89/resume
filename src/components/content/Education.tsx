@@ -1,12 +1,10 @@
 import { Box, Typography, useTheme } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import showdown from 'showdown'
-import { useLang } from '../../contexts/IntlContext'
+import { useLang } from '../../contexts/IntlProvider'
 import { filterByLang, Translate } from '../../wording'
 import { PageTitle } from '../common'
 
-const converter = new showdown.Converter()
 const Education: React.FC = () => (
   <StaticQuery
     query={graphql`

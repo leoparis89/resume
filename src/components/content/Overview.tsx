@@ -2,9 +2,8 @@ import { makeStyles, Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { useLang } from '../../contexts/IntlContext'
-import { filterByLang, Translate } from '../../wording'
-import { PageTitle } from '../common'
+import { useLang } from '../../contexts/IntlProvider'
+import { filterByLang } from '../../wording'
 
 const converter = new showdown.Converter()
 

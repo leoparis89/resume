@@ -1,8 +1,8 @@
-import { Divider, Typography, useTheme } from '@material-ui/core'
+import { Divider, Typography, useTheme, Box } from '@material-ui/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import showdown from 'showdown'
-import { useLang } from '../../contexts/IntlContext'
+import { useLang } from '../../contexts/IntlProvider'
 import { filterByLang, Translate } from '../../wording'
 import { PageTitle } from '../common'
 
@@ -30,22 +30,54 @@ const useAllContentfullJob = () => {
   `)
 }
 
-export const ConnectedWork = () => {
+const Experience = () => {
   const data = useAllContentfullJob()
 
   return (
-    <WorkDisplay
+    <ExperienceDisplay
       content={data.allContentfulJob.edges.map(({ node }) => node)}
     />
   )
 }
 
-const WorkDisplay = ({ content }) => {
+const JobTitle = ({ company, role, startDate, endDate }) => {
+  const { spacing, palette } = useTheme()
+
+  return (
+    <Box display="flex" justifyContent="space-between">
+      <Box>
+        <Typography
+          variant="h4"
+          style={{ marginBottom: spacing(2), fontWeight: 'bold' }}
+        >
+          {company}
+        </Typography>
+        <Typography
+          variant="h5"
+          style={{ marginBottom: spacing(2), fontWeight: 'bold' }}
+        >
+          {role}
+        </Typography>
+      </Box>
+      <Typography
+        variant="h6"
+        style={{
+          marginBottom: spacing(2),
+          color: palette.text.secondary,
+        }}
+      >
+        {makeDate(startDate, endDate)}
+      </Typography>
+    </Box>
+  )
+}
+
+const ExperienceDisplay = ({ content }) => {
   const lang = useLang()
 
   const contentByLang = content.filter(filterByLang(lang))
 
-  const { spacing, palette } = useTheme()
+  const { spacing } = useTheme()
 
   return (
     <>
@@ -63,22 +95,8 @@ const WorkDisplay = ({ content }) => {
               style={{ marginBottom: spacing(5), marginTop: spacing(5) }}
             >
               <div>
-                <Typography
-                  variant="h5"
-                  style={{ marginBottom: spacing(2), fontWeight: 'bold' }}
-                >
-                  {el.company} - {el.role}
-                </Typography>
-                <Typography
-                  variant="h6"
-                  style={{
-                    marginBottom: spacing(2),
-                    color: palette.text.secondary,
-                  }}
-                >
-                  {makeDate(el.startDate, el.endDate)}
-                </Typography>
-                <div
+                <JobTitle {...el} />
+                <p
                   dangerouslySetInnerHTML={{ __html: description }}
                   style={{
                     marginBottom: spacing(3),
@@ -148,3 +166,5 @@ const makeDate = (start, end) => {
     </span>
   )
 }
+
+export default Experience

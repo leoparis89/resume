@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import 'react-toggle/style.css' // for ES6 modules
-import { DarkLightThemeProvider } from '../../contexts/DarkLight'
+import { DarkLightThemeProvider } from '../../contexts/ThemeProvider'
 import Footer from './Footer'
 import { NavBar } from './NavBar'
 

@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core'
 import { Translate } from '@material-ui/icons'
 import React, { useContext } from 'react'
-import { IntlContext, NodeLocale } from '../../contexts/IntlContext'
+import { IntlContext, NodeLocale } from '../../contexts/IntlProvider'
 
 export const ToggleWrapper = styled('div')({ margin: '10px 10px' })
 
