@@ -1,7 +1,7 @@
 {
   "name": "resume",
   "description": "CV Lev Kowalski",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Lev Kowalski <levkowalski@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
