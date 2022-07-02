@@ -3,6 +3,7 @@ import React from 'react'
 import Contact from './Contact'
 import Education from './Education'
 import Experience from './Experience'
+import ShortBio from './ShortBio'
 
 export const Resume: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ export const Resume: React.FC = () => {
         <Contact />
       </Grid>
       <Grid item xs={12}>
+        <ShortBio />
         <Experience />
       </Grid>
       <Grid item xs={12}>
