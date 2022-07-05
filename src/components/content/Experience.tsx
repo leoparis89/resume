@@ -145,7 +145,7 @@ const ExperienceDisplay = ({ content }) => {
 
 const notLast = (index, array) => index < array.length - 1
 
-const Separator = () => <span> // </span>
+const Separator = () => <span> - </span>
 
 const makeDate = (start, end) => {
   const [sy, sm] = start.split('-')
