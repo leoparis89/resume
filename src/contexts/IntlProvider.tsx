@@ -40,6 +40,9 @@ const IntlProvider = (props) => {
 
   return (
     <IntlContext.Provider value={{ lang, toggleLang }}>
+      {langParam}
+      {langFromBrowser}
+      {initialLang}
       {props.children}
     </IntlContext.Provider>
   )
