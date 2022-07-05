@@ -21,7 +21,7 @@ const useSiteMetaData = () => {
   )
 }
 
-const Layout: React.FC = ({ children }: any) => {
+const Layout: React.FC = ({ children, noHeader }: any) => {
   const data = useSiteMetaData()
 
   return (
@@ -40,7 +40,7 @@ const Layout: React.FC = ({ children }: any) => {
         ]}
       />
       <DarkLightThemeProvider>
-        <NavBar />
+        {noHeader ? null : <NavBar />}
         <Box
           minHeight="calc(100vh - 64px)"
           display="flex"
