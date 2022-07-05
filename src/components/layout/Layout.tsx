@@ -40,14 +40,14 @@ const Layout: React.FC = ({ children, noHeader }: any) => {
         ]}
       />
       <DarkLightThemeProvider>
-        {noHeader ? null : <NavBar />}
+        <NavBar noHeader={noHeader} />
         <Box
           minHeight="calc(100vh - 64px)"
           display="flex"
           flexDirection="column"
         >
           <Container style={{ flex: 1 }}>{children}</Container>
-          <Footer />
+          {noHeader ? null : <Footer />}
         </Box>
       </DarkLightThemeProvider>
     </>

@@ -3,7 +3,7 @@ import React from 'react'
 import LangToggle from '../togglers/LangToggle'
 import { ThemeToggle } from '../togglers/ThemeToggle'
 
-export const NavBar: React.FC = (props) => {
+export const NavBar: React.FC<any> = (props) => {
   return (
     <Container>
       <Box
@@ -12,8 +12,12 @@ export const NavBar: React.FC = (props) => {
         height={80}
         alignItems="center"
       >
-        <LangToggle />
-        <ThemeToggle />
+        {props.noHeader ? null : (
+          <>
+            <LangToggle />
+            <ThemeToggle />
+          </>
+        )}
       </Box>
     </Container>
   )
