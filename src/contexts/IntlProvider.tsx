@@ -13,24 +13,17 @@ export const IntlContext = React.createContext<{
   toggleLang: () => {},
 })
 
-const getLang = (langParam: string) => {
-  if (/^fr\b/.test(langParam)) {
-    return NodeLocale.FR
-  }
+// const getLang = (langParam: string) => {
+//   if (/^fr\b/.test(langParam)) {
+//     return NodeLocale.FR
+//   }
 
-  return NodeLocale.EN
-}
+//   return NodeLocale.EN
+// }
 
 export const useLang = () => useContext(IntlContext).lang
 
-const IntlProvider = (props) => {
-  const queryString = window.location.search
-  const urlParams = new URLSearchParams(queryString)
-  const langParam = urlParams.get('lang')
-  const langFromBrowser = window.navigator.language
-
-  const initialLang = getLang(langParam || langFromBrowser)
-
+const IntlProvider = ({ children, lang: initialLang = NodeLocale.EN }) => {
   const [lang, setLang] = useState<NodeLocale>(initialLang)
 
   const toggleLang = () => {
@@ -40,10 +33,7 @@ const IntlProvider = (props) => {
 
   return (
     <IntlContext.Provider value={{ lang, toggleLang }}>
-      {langParam}
-      {langFromBrowser}
-      {initialLang}
-      {props.children}
+      {children}
     </IntlContext.Provider>
   )
 }

@@ -23,6 +23,8 @@ export const DarkLightStateProvider: React.FC = (props) => {
   const [dark, setDark] = useState<boolean>(initialIsDarkState)
 
   const toggleTheme = () => {
+    // tslint:disable-next-line:no-console
+    console.log('theme')
     setDark((prevTheme) => !prevTheme)
   }
 
