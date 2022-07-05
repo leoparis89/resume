@@ -13,7 +13,7 @@ export const Resume: React.FC = () => {
           Lev Kowalski
         </Typography>
         <Typography variant="h3" component="h2" gutterBottom>
-          Fullstack developer
+          Fullstack Developer
         </Typography>
       </Grid>
       <Grid item xs={12} md={4}>
