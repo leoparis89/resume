@@ -1,14 +1,9 @@
 import React from 'react'
 import { Resume } from '../../components/content/Resume'
-import Layout from '../../components/layout/Layout'
-import IntlProvider from '../../contexts/IntlProvider'
-
-const WorkPage = () => (
-  <IntlProvider>
-    <Layout>
-      <Resume />
-    </Layout>
-  </IntlProvider>
+import Wrap from '../../hoc/withProviders'
+const Wrapped = () => (
+  <Wrap>
+    <Resume />
+  </Wrap>
 )
-
-export default WorkPage
+export default Wrapped

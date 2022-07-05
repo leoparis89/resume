@@ -1,17 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Overview from '../../components/content/Overview'
-import Layout from '../../components/layout/Layout'
-import IntlProvider from '../../contexts/IntlProvider'
+import Wrap from '../../hoc/withProviders'
+const Wrapped = () => (
+  <Wrap>
+    <Overview />
+  </Wrap>
+)
 
-class IndexPage extends Component {
-  render() {
-    return (
-      <IntlProvider>
-        <Layout>
-          <Overview />
-        </Layout>
-      </IntlProvider>
-    )
-  }
-}
-export default IndexPage
+export default Wrapped

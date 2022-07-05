@@ -1,14 +1,11 @@
 import React from 'react'
 import { Resume } from '../../components/content/Resume'
-import Layout from '../../components/layout/Layout'
-import IntlProvider, { NodeLocale } from '../../contexts/IntlProvider'
+import { NodeLocale } from '../../contexts/IntlProvider'
+import Wrap from '../../hoc/withProviders'
 
-const WorkPage = () => (
-  <IntlProvider lang={NodeLocale.FR}>
-    <Layout>
-      <Resume />
-    </Layout>
-  </IntlProvider>
+const Wrapped = () => (
+  <Wrap lang={NodeLocale.FR}>
+    <Resume />
+  </Wrap>
 )
-
-export default WorkPage
+export default Wrapped
