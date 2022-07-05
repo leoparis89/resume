@@ -1,7 +1,7 @@
 {
   "name": "resume",
   "description": "CV Lev Kowalski",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "author": "Lev Kowalski <levkowalski@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.9.0",
